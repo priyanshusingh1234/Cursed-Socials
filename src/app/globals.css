@@ -1,0 +1,1122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #dedae3;
+  font-family: 'Patrick Hand', 'Caveat', 'Comic Sans MS', cursive, sans-serif;
+  color: #1e1750;
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center center;
+}
+
+/* Whole site flips 180° upside-down when cursed */
+body.cursed-upside-down {
+  transform: rotate(180deg);
+}
+
+/* ============================================================
+   CURSED FEATURE HINT (Translucent, elongated in left blank space)
+============================================================ */
+
+.cursed-hint {
+  position: fixed;
+  left: clamp(8px, 1.1vw, 24px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 200;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 0.25rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  opacity: 0.68;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.cursed-hint:hover {
+  opacity: 1;
+  transform: translateY(-50%) rotate(-1.5deg);
+}
+
+.cursed-hint:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.cursed-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: 'Patrick Hand', 'Caveat', cursive, sans-serif;
+  font-size: clamp(0.85rem, 1vw, 1.05rem);
+  font-weight: 600;
+  color: #2b2166;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  white-space: nowrap;
+  text-transform: lowercase;
+}
+
+/* ============================================================
+   1. HERO SECTION (Full Viewport Stage with Rotated Drawing)
+============================================================ */
+
+.hero-section {
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #dedae3;
+}
+
+/* Stage container maintaining exactly the 1613 : 975 landscape aspect ratio */
+.stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(100vw, calc(100vh * (1613 / 975)));
+  height: min(100vh, calc(100vw * (975 / 1613)));
+  background-color: #dedae3;
+  user-select: none;
+}
+
+/* Rotated image inside stage matching exact dimensions */
+.bg-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(100% * (975 / 1613));
+  height: calc(100% * (1613 / 975));
+  transform: translate(-50%, -50%) rotate(-90deg);
+  background-image: url('/generated.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+/* Accurately tracked navigation across the horizontal boxes */
+.nav-bar {
+  position: absolute;
+  top: 1.8%;
+  left: 53.0%;
+  width: 25.0%;
+  height: 4.4%;
+  display: flex;
+  gap: clamp(16px, 2.6vw, 36px);
+  z-index: 100;
+}
+
+/* Individual horizontal boxes with matching parallelogram tilt */
+.nav-box {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transform: skewX(-15deg);
+  cursor: pointer;
+}
+
+/* Nav text with centered origin for in-place upside-down flip */
+.nav-text {
+  display: inline-block;
+  transform-origin: center;
+  transform: skewX(15deg) rotate(0deg);
+  font-size: clamp(0.75rem, 1.2vw, 1.2rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.08em;
+  text-shadow: 0 1px 3px rgba(20, 15, 60, 0.8), 0 0 2px rgba(20, 15, 60, 0.9);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              text-shadow 0.2s ease;
+}
+
+/* Hover: Text flips upside down in place */
+.nav-box:hover .nav-text {
+  transform: skewX(15deg) rotate(180deg);
+  text-shadow: 0 -1px 3px rgba(20, 15, 60, 0.8), 0 0 4px rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================================
+   TRANSPARENT SHAPE CONTAINERS IN HERO
+============================================================ */
+
+.shape-container {
+  position: absolute;
+  z-index: 50;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-align: center;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              filter 0.25s ease;
+}
+
+/* Pulse on click navigation */
+.shape-container.active-highlight {
+  animation: shapeGlow 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes shapeGlow {
+  0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(70, 58, 148, 0)); }
+  50% { transform: scale(1.03); filter: drop-shadow(0 0 8px rgba(70, 58, 148, 0.5)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(70, 58, 148, 0)); }
+}
+
+/* 1. TRIANGLE SHAPE */
+.shape-triangle {
+  left: 6.5%;
+  top: 52.0%;
+  width: 24.5%;
+  height: 35.0%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.triangle-content {
+  width: 82%;
+  height: 72%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 0.5rem 0.6rem 0.5rem;
+  color: #ffffff;
+}
+
+.shape-badge {
+  display: inline-block;
+  font-family: 'Special Elite', cursive;
+  font-size: clamp(0.56rem, 0.74vw, 0.76rem);
+  font-weight: 700;
+  color: #ffffff;
+  padding: 0.08rem 0.45rem;
+  border-radius: 2px;
+  margin-bottom: 0.2rem;
+  border: 1px dashed rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 2px rgba(20, 15, 60, 0.7);
+}
+
+.shape-triangle .shape-title {
+  font-size: clamp(0.85rem, 1.25vw, 1.25rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 1px 3px rgba(20, 15, 60, 0.9);
+}
+
+.shape-triangle .shape-desc {
+  font-size: clamp(0.62rem, 0.82vw, 0.82rem);
+  line-height: 1.25;
+  color: #f3f0fb;
+  margin-bottom: 0.35rem;
+  text-shadow: 0 1px 2px rgba(20, 15, 60, 0.8);
+}
+
+.shape-triangle .shape-meta {
+  font-size: clamp(0.58rem, 0.72vw, 0.75rem);
+  font-weight: 700;
+  color: #e5e0f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.12rem;
+  text-shadow: 0 1px 2px rgba(20, 15, 60, 0.8);
+}
+
+/* 2. SQUARE SHAPE */
+.shape-square {
+  left: 36.2%;
+  top: 52.5%;
+  width: 19.5%;
+  height: 34.5%;
+  padding: 0.35rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.shape-square .shape-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.shape-square .shape-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  margin: 0;
+}
+
+.shape-square .shape-title {
+  font-size: clamp(0.85rem, 1.2vw, 1.2rem);
+  font-weight: 800;
+  color: #1e1750;
+}
+
+.shape-tag {
+  font-size: clamp(0.58rem, 0.72vw, 0.72rem);
+  font-weight: 800;
+  color: #1e1750;
+  background: rgba(62, 51, 133, 0.12);
+  border: 1px solid rgba(62, 51, 133, 0.3);
+  padding: 0.05rem 0.35rem;
+  border-radius: 4px;
+}
+
+.steps-list {
+  width: 100%;
+  font-size: clamp(0.62rem, 0.82vw, 0.84rem);
+  line-height: 1.28;
+  color: #241c5c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  text-align: center;
+}
+
+.criteria-box {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: clamp(0.58rem, 0.75vw, 0.78rem);
+  line-height: 1.2;
+  color: #352c73;
+  text-align: center;
+}
+
+/* 3. RECTANGLE SHAPE */
+.shape-rectangle {
+  left: 61.2%;
+  top: 64.5%;
+  width: 29.0%;
+  height: 23.5%;
+  padding: 0.25rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.shape-rectangle .shape-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.shape-rectangle .shape-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.shape-rectangle .shape-title {
+  font-size: clamp(0.85rem, 1.2vw, 1.25rem);
+  font-weight: 800;
+  color: #1e1750;
+  line-height: 1.1;
+}
+
+.prize-highlight {
+  width: 100%;
+  font-size: clamp(0.72rem, 0.96vw, 1.02rem);
+  font-weight: 700;
+  color: #20175b;
+  line-height: 1.25;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.prize-notes {
+  width: 100%;
+  font-size: clamp(0.64rem, 0.84vw, 0.88rem);
+  line-height: 1.25;
+  color: #352c73;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  text-align: center;
+}
+
+/* ============================================================
+   2. ABOUT SECTION (Matching Hero Stage Size & Scale)
+============================================================ */
+
+.about-section {
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #dedae3;
+  overflow: hidden;
+}
+
+/* Stage sized identically to hero stage for seamless visual continuity */
+.about-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(100vw, calc(100vh * (1613 / 975)));
+  height: min(100vh, calc(100vw * (975 / 1613)));
+  background-image: url('/about-bg.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  user-select: none;
+}
+
+/* Top Slanted 3D Box */
+.about-top-box {
+  position: absolute;
+  left: 28.5%;
+  top: 9.5%;
+  width: 41.5%;
+  height: 14.0%;
+  transform: skewX(-14deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.about-top-box-inner {
+  transform: skewX(14deg);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  padding: 0.2rem 0.6rem;
+}
+
+.about-badge {
+  display: inline-block;
+  font-family: 'Special Elite', cursive;
+  font-size: clamp(0.64rem, 0.88vw, 0.88rem);
+  font-weight: 700;
+  color: #241c5c;
+  padding: 0.05rem 0.45rem;
+  border-bottom: 1.5px dashed rgba(72, 59, 138, 0.45);
+  letter-spacing: 0.04em;
+}
+
+.about-top-title {
+  font-size: clamp(1.15rem, 1.7vw, 1.75rem);
+  font-weight: 800;
+  color: #1e1750;
+  line-height: 1.1;
+}
+
+.about-top-quote {
+  font-size: clamp(0.78rem, 1.12vw, 1.15rem);
+  font-weight: 700;
+  color: #241c5c;
+  line-height: 1.25;
+  font-style: italic;
+}
+
+.about-top-meta {
+  font-size: clamp(0.68rem, 0.9vw, 0.92rem);
+  font-weight: 700;
+  color: #3b317a;
+}
+
+/* Base style for lower boxes */
+.about-box {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.box-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0.5rem 0.75rem;
+}
+
+.box-step-tag {
+  display: inline-block;
+  background: #483b8a;
+  color: #ffffff;
+  font-size: clamp(0.72rem, 0.95vw, 0.95rem);
+  font-weight: 800;
+  padding: 0.1rem 0.55rem;
+  border-radius: 4px;
+}
+
+.box-title {
+  font-size: clamp(1.15rem, 1.6vw, 1.65rem);
+  font-weight: 800;
+  color: #1e1750;
+  line-height: 1.1;
+}
+
+.box-desc {
+  font-size: clamp(0.82rem, 1.1vw, 1.15rem);
+  line-height: 1.25;
+  color: #241c5c;
+  font-weight: 700;
+}
+
+.box-rule {
+  font-size: clamp(0.72rem, 0.92vw, 0.95rem);
+  line-height: 1.2;
+  color: #3b317a;
+}
+
+.box-highlight {
+  font-size: clamp(0.78rem, 1.02vw, 1.05rem);
+  line-height: 1.25;
+  color: #1e1750;
+  font-weight: 800;
+}
+
+/* 1. Bottom-Left Box (Step 1: Design) */
+.about-step-1 {
+  left: 5.5%;
+  top: 34.0%;
+  width: 23.5%;
+  height: 38.0%;
+  transform: skewX(-17deg);
+}
+
+.about-step-1 .box-inner {
+  transform: skewX(17deg);
+}
+
+/* Arrow 1 -> 2 */
+.about-arrow-1 {
+  left: 29.5%;
+  top: 50.0%;
+  width: 6.5%;
+  height: 6.0%;
+}
+
+/* 2. Bottom-Middle Box (Step 2: Ship) */
+.about-step-2 {
+  left: 36.5%;
+  top: 34.0%;
+  width: 27.5%;
+  height: 40.0%;
+  transform: skewX(-15deg);
+}
+
+.about-step-2 .box-inner {
+  transform: skewX(15deg);
+}
+
+/* Arrow 2 -> 3 */
+.about-arrow-2 {
+  left: 64.5%;
+  top: 51.0%;
+  width: 6.5%;
+  height: 6.0%;
+}
+
+/* 3. Bottom-Right Box (Step 3: Review & Prize) */
+.about-step-3 {
+  left: 71.5%;
+  top: 35.0%;
+  width: 25.5%;
+  height: 41.0%;
+  transform: skewX(5deg);
+}
+
+.about-step-3 .box-inner {
+  transform: skewX(-5deg);
+}
+
+/* Hand-Drawn Sketch Arrows in Gaps */
+.about-arrow {
+  position: absolute;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.sketch-arrow-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.sketch-arrow-svg path {
+  stroke: #483b8a;
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+/* ============================================================
+   3. FAQ SECTION (Using faq-bg.jpg Hand-Drawn Canvas)
+============================================================ */
+
+.faq-section {
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #dedae3;
+  overflow: hidden;
+}
+
+/* Stage maintaining exactly 1600 : 900 aspect ratio */
+.faq-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(100vw, calc(100vh * (1600 / 900)));
+  height: min(100vh, calc(100vw * (900 / 1600)));
+  background-image: url('/faq-bg.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  user-select: none;
+}
+
+/* Slanted FAQ Boxes */
+.faq-box {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: skewX(-14deg);
+}
+
+.faq-box-inner {
+  transform: skewX(14deg);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0.35rem 0.85rem;
+}
+
+.faq-question {
+  font-size: clamp(0.95rem, 1.35vw, 1.45rem);
+  font-weight: 800;
+  color: #1e1750;
+  line-height: 1.15;
+}
+
+.faq-answer {
+  font-size: clamp(0.8rem, 1.1vw, 1.15rem);
+  font-weight: 700;
+  color: #241c5c;
+  line-height: 1.25;
+}
+
+/* FAQ Box 1 */
+.faq-box-1 {
+  left: 28.7%;
+  top: 23.3%;
+  width: 41.8%;
+  height: 13.3%;
+}
+
+/* FAQ Box 2 */
+.faq-box-2 {
+  left: 28.1%;
+  top: 43.3%;
+  width: 42.1%;
+  height: 13.3%;
+}
+
+/* FAQ Box 3 */
+.faq-box-3 {
+  left: 30.3%;
+  top: 59.4%;
+  width: 39.7%;
+  height: 14.4%;
+}
+
+/* FAQ Box 4 */
+.faq-box-4 {
+  left: 30.0%;
+  top: 76.6%;
+  width: 42.5%;
+  height: 15.0%;
+}
+
+/* Paper Toast Notification on Click */
+.paper-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(255, 255, 255, 0.95);
+  color: #2e266a;
+  border: 1px solid rgba(70, 58, 148, 0.3);
+  padding: 0.6rem 1.4rem;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(46, 38, 106, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1000;
+}
+
+.paper-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ============================================================
+   HACK CLUB YSWS FLAG BANNER (Top Left Hanging Banner)
+============================================================ */
+
+.hackclub-flag-banner {
+  position: fixed;
+  top: 0;
+  left: clamp(10px, 2.5vw, 28px);
+  z-index: 300;
+  width: clamp(84px, 10vw, 130px);
+  display: block;
+  transform-origin: top left;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hackclub-flag-banner:hover {
+  transform: rotate(-4deg) scale(1.05);
+}
+
+.hackclub-flag-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.25));
+}
+
+/* ============================================================
+   BEGINNER GUIDE PAPER NOTE (Top Left)
+============================================================ */
+
+.guide-floating-pill {
+  position: fixed;
+  top: clamp(12px, 2.2vh, 24px);
+  left: calc(clamp(10px, 2.5vw, 28px) + clamp(84px, 10vw, 130px) + 14px);
+  z-index: 250;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f4effa;
+  border: 1.8px solid #2b2166;
+  border-radius: 3px 8px 4px 7px;
+  padding: 5px 13px;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1e1750;
+  text-decoration: none;
+  box-shadow: 2px 3px 0 #2b2166;
+  transform: rotate(-1.2deg);
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+  user-select: none;
+}
+
+.guide-floating-pill:hover {
+  transform: rotate(0deg) translateY(-2px);
+  background: #faf7ff;
+}
+
+@media (max-width: 720px) {
+  .guide-floating-pill {
+    display: none;
+  }
+}
+
+/* ============================================================
+   HACK CLUB AUTH WIDGET (Top Right Ink Stamp)
+============================================================ */
+
+.auth-floating-wrapper {
+  position: fixed;
+  top: clamp(12px, 2.2vh, 24px);
+  right: clamp(14px, 2vw, 36px);
+  z-index: 250;
+  display: flex;
+  align-items: center;
+}
+
+.auth-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f4effa;
+  border: 1.8px solid #2b2166;
+  border-radius: 6px 3px 7px 4px;
+  padding: 5px 13px;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.05rem;
+  color: #1e1750;
+  text-decoration: none;
+  box-shadow: 2px 3px 0 #2b2166;
+  transform: rotate(0.8deg);
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+  user-select: none;
+}
+
+.auth-pill:hover {
+  transform: rotate(0deg) translateY(-2px);
+  background: #faf7ff;
+}
+
+.auth-hc-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url('/assets/hackclub-icon.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.auth-pill.logged-in {
+  background: #f4effa;
+  border-color: #2b2166;
+  cursor: default;
+  gap: 10px;
+}
+
+.auth-avatar-img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid #2b2166;
+  background: #f4effa;
+  flex-shrink: 0;
+}
+
+.auth-avatar-img.auth-hc-fallback {
+  border-color: #ec3750;
+  background-color: #ec3750;
+}
+
+.auth-user-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.auth-user-name {
+  font-weight: 700;
+  max-width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.05rem;
+  color: #1e1750;
+}
+
+.auth-badge-verified {
+  font-family: 'Special Elite', cursive;
+  font-size: 0.68rem;
+  background: transparent;
+  border: 1.5px solid #1f6f3b;
+  color: #1f6f3b;
+  padding: 1px 5px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  transform: rotate(-2deg);
+}
+
+.auth-loading-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #c4b5fd;
+  border-top-color: #483b8a;
+  border-radius: 50%;
+  animation: auth-spin 0.8s linear infinite;
+}
+
+@keyframes auth-spin {
+  to { transform: rotate(360deg); }
+}
+
+.auth-btn-subtle {
+  background: transparent;
+  border: none;
+  font-family: 'Special Elite', cursive;
+  font-size: 0.8rem;
+  color: #888;
+  cursor: pointer;
+  padding: 2px 6px;
+  text-decoration: underline;
+}
+.auth-btn-subtle:hover { color: #cc2200; }
+
+/* Config Helper Modal */
+.auth-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 11, 36, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.auth-modal-card {
+  background: #ffffff;
+  border: 3px solid #1e1750;
+  border-radius: 12px;
+  max-width: 520px;
+  width: 100%;
+  padding: 24px;
+  font-family: 'Patrick Hand', cursive;
+  color: #1e1750;
+  box-shadow: 8px 10px 0 rgba(30, 23, 80, 0.35);
+}
+
+.auth-modal-card h3 {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: #2d2459;
+}
+
+.auth-input-group {
+  margin-top: 14px;
+}
+.auth-input-group label {
+  display: block;
+  font-family: 'Special Elite', cursive;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+.auth-input-group input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #483b8a;
+  border-radius: 6px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
+}
+
+.auth-modal-guide {
+  margin-top: 14px;
+  background: #f7f5ff;
+  border-left: 3px solid #483b8a;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.auth-modal-guide code {
+  background: #ede8ff;
+  color: #483b8a;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-family: monospace;
+}
+
+.auth-modal-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.auth-modal-btn {
+  font-family: 'Special Elite', cursive;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 2px solid #1e1750;
+  background: white;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.auth-modal-btn.primary {
+  background: #483b8a;
+  color: white;
+}
+.auth-modal-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   4. UNSLOPPED ZINE FOOTER (Shared across Homepage & Guide)
+============================================================ */
+
+.site-footer {
+  width: 100%;
+  background: #dedae3;
+  border-top: 2px dashed rgba(43, 33, 102, 0.35);
+  padding: 26px 20px 36px;
+  font-family: 'Patrick Hand', cursive;
+  color: #1e1750;
+}
+
+.site-footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.site-footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.05rem;
+  color: #1e1750;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.site-footer-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: block;
+}
+
+.site-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 18px;
+}
+
+.site-footer-link {
+  font-family: 'Special Elite', cursive;
+  font-size: 0.86rem;
+  color: #2b2166;
+  text-decoration: none;
+  border-bottom: 1.5px dashed rgba(43, 33, 102, 0.35);
+  padding-bottom: 1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.site-footer-link:hover {
+  color: #ec3750;
+  border-bottom-color: #ec3750;
+}
+
+/* Centered Hero RSVP Stamp (shown only when signed in) */
+.hero-rsvp-center {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 150;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.hero-rsvp-btn {
+  display: inline-block;
+  padding: clamp(10px, 1.4vh, 15px) clamp(22px, 2.8vw, 38px);
+  background: #ec3750;
+  color: #ffffff;
+  border: 2.5px solid #1e1750;
+  border-radius: 4px 10px 5px 9px;
+  box-shadow: 4px 5px 0 #1e1750;
+  font-family: 'Special Elite', cursive;
+  font-size: clamp(1rem, 2vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  white-space: nowrap;
+  transform: rotate(-1.5deg);
+  transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
+}
+
+.hero-rsvp-btn:hover {
+  background: #d92b43;
+  transform: rotate(0deg) translate(-2px, -2px);
+  box-shadow: 6px 7px 0 #1e1750;
+}
+
+.hero-rsvp-btn:active {
+  transform: rotate(0deg) translate(2px, 2px);
+  box-shadow: 2px 3px 0 #1e1750;
+}

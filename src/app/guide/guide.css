@@ -1,0 +1,371 @@
+/* CSS rules for the 10-frame Guide Page */
+
+.guide-page-container {
+  background: #dedae3;
+  min-height: 100vh;
+  padding-bottom: 0;
+  color: #1e1750;
+  font-family: 'Patrick Hand', cursive;
+  overflow-x: hidden;
+}
+
+.topbar {
+  background: #2d2459;
+  color: #f3effa;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px dashed rgba(196, 181, 253, 0.35);
+}
+
+.topbar a {
+  color: #e8e0ff;
+  text-decoration: none;
+  font-family: 'Special Elite', cursive;
+  font-size: 0.9rem;
+  border-bottom: 1.5px solid transparent;
+  padding: 2px 4px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.topbar a:hover {
+  color: #ffffff;
+  border-bottom-color: #c4b5fd;
+}
+
+.topbar a.topbar-beginner-tab {
+  background: #ec3750;
+  color: #ffffff;
+  padding: 4px 11px;
+  border: 1.5px solid #1e1750;
+  border-radius: 2px;
+  box-shadow: 2px 2px 0 #1e1750;
+  border-bottom: 1.5px solid #1e1750;
+}
+
+.topbar a.topbar-beginner-tab:hover {
+  background: #d62a42;
+  border-bottom-color: #1e1750;
+  transform: translateY(-1px);
+}
+
+.topbar a.topbar-video-tab {
+  border: 1px dashed rgba(196, 181, 253, 0.55);
+  border-radius: 2px;
+  padding: 3px 9px;
+}
+
+.topbar a.topbar-video-tab:hover {
+  background: rgba(196, 181, 253, 0.12);
+  border-bottom-color: rgba(196, 181, 253, 0.55);
+}
+
+/* Inline slide deck inside the paper guide frame */
+.slides-frame-box {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.slides-pdf-embed {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  border: 2px solid #1e1750;
+  background: #ece7f2;
+}
+
+.cta-btn-outline {
+  display: inline-block;
+  background: transparent;
+  color: #1e1750;
+  border: 2px solid #1e1750;
+  font-family: 'Special Elite', cursive;
+  text-decoration: none;
+  padding: clamp(5px, 1vw, 8px) clamp(12px, 2.2vw, 20px);
+  font-size: clamp(0.7rem, 1.35vw, 0.9rem);
+  letter-spacing: 0.04em;
+}
+
+.cta-btn-outline:hover {
+  background: rgba(72, 59, 138, 0.1);
+}
+
+/* stage: landscape 4:3, guide-bg.jpg as the frame */
+.guide-page-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 0;
+}
+
+.guide-stage {
+  position: relative;
+  width: min(100vw, calc(100vh * 1.3333));
+  height: min(100vh, calc(100vw * 0.75));
+  max-width: 1100px;
+  aspect-ratio: 4 / 3;
+  background: url('/guide-bg.jpg') center / 100% 100% no-repeat;
+  overflow: hidden;
+}
+
+/* content lives here — grid layout, no white boxes */
+.fc {
+  position: absolute;
+  top: 13%;
+  left: 9%;
+  right: 9%;
+  bottom: 10%;
+  overflow: hidden;
+}
+
+.fc-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3%;
+}
+
+.fc-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2%;
+}
+
+.col {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2%;
+}
+
+/* vertical rule between columns */
+.vr {
+  position: absolute;
+  top: 13%;
+  left: calc(50% + 0.5px);
+  width: 1px;
+  bottom: 10%;
+  background: #483b8a;
+  opacity: 0.2;
+}
+
+/* typography */
+.h1 {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  color: #1e1750;
+  line-height: 1.1;
+  font-size: clamp(1.6rem, 4.5vw, 3rem);
+}
+
+.h2 {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  color: #2d2459;
+  line-height: 1.15;
+  font-size: clamp(1.1rem, 2.8vw, 1.9rem);
+}
+
+.h3 {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  color: #483b8a;
+  font-size: clamp(1rem, 2.3vw, 1.5rem);
+}
+
+.label {
+  font-family: 'Special Elite', cursive;
+  font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+  letter-spacing: 0.06em;
+  color: #483b8a;
+}
+
+.body {
+  font-family: 'Patrick Hand', cursive;
+  font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+  line-height: 1.55;
+  color: #1e1750;
+}
+
+.body-sm {
+  font-family: 'Patrick Hand', cursive;
+  font-size: clamp(0.62rem, 1.2vw, 0.78rem);
+  line-height: 1.5;
+  color: #483b8a;
+}
+
+.ic {
+  font-family: 'Fira Code', monospace;
+  background: #1a1035;
+  color: #c4b5fd;
+  padding: 1px 5px;
+  font-size: 0.85em;
+}
+
+/* Q&A style */
+.q {
+  font-family: 'Special Elite', cursive;
+  color: #2d2459;
+  font-size: clamp(0.68rem, 1.3vw, 0.82rem);
+  margin-top: 1%;
+}
+
+.a {
+  font-family: 'Patrick Hand', cursive;
+  color: #1e1750;
+  font-size: clamp(0.62rem, 1.2vw, 0.78rem);
+  line-height: 1.45;
+  padding-left: 10px;
+  border-left: 2px solid #c4b5fd;
+}
+
+/* step row */
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.stepn {
+  flex-shrink: 0;
+  background: #483b8a;
+  color: white;
+  font-family: 'Caveat', cursive;
+  width: clamp(22px, 3vw, 30px);
+  height: clamp(22px, 3vw, 30px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(0.8rem, 1.8vw, 1.1rem);
+  font-weight: 700;
+}
+
+.step-body {
+  font-size: clamp(0.62rem, 1.2vw, 0.78rem);
+  line-height: 1.4;
+  color: #1e1750;
+}
+
+.step-title {
+  font-family: 'Special Elite', cursive;
+  color: #2d2459;
+  font-size: clamp(0.65rem, 1.3vw, 0.82rem);
+}
+
+/* tool entry */
+.tool-name {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  color: #1e1750;
+  font-size: clamp(0.9rem, 2vw, 1.3rem);
+}
+
+.tool-url {
+  font-family: 'Special Elite', cursive;
+  color: #483b8a;
+  font-size: clamp(0.58rem, 1.1vw, 0.72rem);
+}
+
+.tool-desc {
+  font-family: 'Patrick Hand', cursive;
+  color: #1e1750;
+  font-size: clamp(0.6rem, 1.15vw, 0.75rem);
+  line-height: 1.4;
+}
+
+/* code blocks */
+.code {
+  background: #1a1035;
+  padding: clamp(6px, 1.2vw, 12px) clamp(8px, 1.5vw, 14px);
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: clamp(0.48rem, 0.95vw, 0.65rem);
+  color: #e0d9f7;
+  line-height: 1.6;
+  white-space: pre;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.code .co { color: #6a5f8a; }
+.code .ky { color: #c4b5fd; }
+.code .st { color: #a5f3a5; }
+.code .fn { color: #93c5fd; }
+
+/* page title bar */
+.ftitle {
+  position: absolute;
+  top: 5.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+  color: #2d2459;
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+  white-space: nowrap;
+}
+
+/* chips */
+.chip-line {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.chip {
+  font-family: 'Special Elite', cursive;
+  font-size: clamp(0.55rem, 1vw, 0.68rem);
+  padding: 2px 8px;
+  border: 1.5px solid #483b8a;
+  color: #483b8a;
+  letter-spacing: 0.04em;
+}
+
+.chip.red {
+  border-color: #cc2200;
+  color: #9b1b1b;
+}
+
+.chip.green {
+  border-color: #2a7a2a;
+  color: #2a7a2a;
+}
+
+.chip.filled {
+  background: #483b8a;
+  color: white;
+  border-color: #483b8a;
+}
+
+.hr {
+  border: none;
+  border-top: 1.5px dashed #483b8a;
+  opacity: 0.3;
+}
+
+.stage-img {
+  display: block;
+  border: 2px solid #1e1750;
+  width: 100%;
+  height: auto;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: #483b8a;
+  color: white;
+  font-family: 'Special Elite', cursive;
+  text-decoration: none;
+  padding: clamp(6px, 1.2vw, 10px) clamp(16px, 3vw, 28px);
+  font-size: clamp(0.72rem, 1.5vw, 0.95rem);
+  letter-spacing: 0.06em;
+  box-shadow: 4px 5px 1px rgba(30, 23, 80, 0.4);
+}
+
