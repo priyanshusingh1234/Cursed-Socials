@@ -1,19 +1,5 @@
 import Link from 'next/link';
 
-const HACKCLUB_LINKS = [
-  { label: 'Hack Club', href: 'https://hackclub.com/' },
-  { label: 'Slack (#cursed-socials)', href: 'https://hackclub.com/slack' },
-  { label: 'YSWS Programs', href: 'https://hackclub.com/programs' },
-  { label: 'Hackatime', href: 'https://hackatime.hackclub.com/' },
-  { label: 'Philosophy', href: 'https://hackclub.com/philosophy' },
-  { label: 'Code of Conduct', href: 'https://hackclub.com/conduct' },
-  { label: 'Privacy & Terms', href: 'https://hackclub.com/privacy-and-terms' },
-  { label: 'GitHub', href: 'https://github.com/hackclub' }
-];
-
-/**
- * Hand-drawn zine colophon footer shared across the homepage and guide page.
- */
 export default function SiteFooter({ isGuide = false }) {
   return (
     <footer className="site-footer" aria-label="Footer">
@@ -25,19 +11,16 @@ export default function SiteFooter({ isGuide = false }) {
             className="site-footer-icon"
           />
           <span>
-            <strong>Cursed Socials</strong> — a Hack Club YSWS by Priyanshu Singh (teens 13–18)
+            <strong>Cursed Socials</strong> — ship something silly, get a grant.
+            <span className="site-footer-sub"> a Hack Club YSWS · teens 13–18 · by Priyanshu Singh</span>
           </span>
         </div>
 
         <nav className="site-footer-links" aria-label="Program links">
           {isGuide ? (
-            <Link href="/" className="site-footer-link">
-              ← Back to Main Site
-            </Link>
+            <Link href="/" className="site-footer-link">← back to site</Link>
           ) : (
-            <Link href="/guide" className="site-footer-link">
-              Beginner Guide
-            </Link>
+            <Link href="/guide" className="site-footer-link">detailed guide</Link>
           )}
           <a
             href="/beginner-guide.pdf"
@@ -45,25 +28,28 @@ export default function SiteFooter({ isGuide = false }) {
             rel="noopener noreferrer"
             className="site-footer-link"
           >
-            17-Slide Starter PDF
+            download guide (pdf)
+          </a>
+          <a href="#faq" className="site-footer-link">faq</a>
+          <a
+            href="https://rsvp.soon.it/cursed-socials-rsvp"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="site-footer-link"
+          >
+            rsvp
           </a>
         </nav>
 
-        <nav className="site-footer-links" aria-label="Hack Club essential links">
-          {HACKCLUB_LINKS.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="site-footer-link"
-            >
-              {item.label}
-            </a>
-          ))}
+        <nav className="site-footer-links site-footer-hc" aria-label="Hack Club links">
+          <a href="https://hackclub.com/" target="_blank" rel="noopener noreferrer" className="site-footer-link">hackclub.com</a>
+          <a href="https://hackclub.com/slack" target="_blank" rel="noopener noreferrer" className="site-footer-link">#cursed-socials on slack</a>
+          <a href="https://hackclub.com/programs" target="_blank" rel="noopener noreferrer" className="site-footer-link">ysws programs</a>
+          <a href="https://hackclub.com/conduct" target="_blank" rel="noopener noreferrer" className="site-footer-link">code of conduct</a>
+          <a href="https://hackclub.com/privacy-and-terms" target="_blank" rel="noopener noreferrer" className="site-footer-link">privacy</a>
+          <a href="https://github.com/hackclub" target="_blank" rel="noopener noreferrer" className="site-footer-link">github</a>
         </nav>
       </div>
     </footer>
   );
 }
-

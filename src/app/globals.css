@@ -875,8 +875,30 @@ body.cursed-upside-down {
 
 .auth-user-info {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+}
+
+.auth-user-name-row {
+  display: flex;
   align-items: center;
   gap: 6px;
+}
+
+.auth-user-club {
+  font-family: 'Special Elite', cursive;
+  font-size: 0.75rem;
+  color: #483b8a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+  line-height: 1.1;
+  background: rgba(72, 59, 138, 0.08);
+  padding: 1px 4px;
+  border-radius: 3px;
+  border: 1px dashed rgba(72, 59, 138, 0.3);
 }
 
 .auth-user-name {
@@ -1024,59 +1046,83 @@ body.cursed-upside-down {
 .site-footer {
   width: 100%;
   background: #dedae3;
-  border-top: 2px dashed rgba(43, 33, 102, 0.35);
-  padding: 26px 20px 36px;
+  border-top: 2px dashed rgba(43, 33, 102, 0.28);
+  padding: 32px 24px 44px;
   font-family: 'Patrick Hand', cursive;
   color: #1e1750;
 }
 
 .site-footer-inner {
-  max-width: 960px;
+  max-width: 860px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   text-align: center;
 }
 
 .site-footer-brand {
   display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 1.05rem;
-  color: #1e1750;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 1rem;
+  color: #2b2166;
   flex-wrap: wrap;
   justify-content: center;
+  line-height: 1.5;
+}
+
+.site-footer-sub {
+  display: block;
+  font-size: 0.82rem;
+  color: #5a4f8a;
+  margin-top: 2px;
+  font-family: 'Special Elite', cursive;
+  letter-spacing: 0.01em;
 }
 
 .site-footer-icon {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   display: block;
+  margin-top: 2px;
+  flex-shrink: 0;
 }
 
 .site-footer-links {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px 18px;
+  gap: 6px 20px;
+}
+
+.site-footer-hc {
+  opacity: 0.75;
+  gap: 4px 16px;
 }
 
 .site-footer-link {
   font-family: 'Special Elite', cursive;
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   color: #2b2166;
   text-decoration: none;
-  border-bottom: 1.5px dashed rgba(43, 33, 102, 0.35);
+  border-bottom: 1.5px dashed rgba(43, 33, 102, 0.3);
   padding-bottom: 1px;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.14s ease, border-color 0.14s ease;
+}
+
+.site-footer-hc .site-footer-link {
+  font-size: 0.78rem;
+  color: #5a4f8a;
+  border-bottom-color: rgba(90, 79, 138, 0.25);
 }
 
 .site-footer-link:hover {
   color: #ec3750;
   border-bottom-color: #ec3750;
+  opacity: 1;
 }
 
 /* Centered Hero RSVP Stamp (shown only when signed in) */

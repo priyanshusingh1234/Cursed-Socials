@@ -3,20 +3,16 @@ import { cookies } from 'next/headers';
 
 export async function GET() {
   const cookieStore = await cookies();
-  const sessionCookie = cookieStore.get('hc_user_session');
+  const session = cookieStore.get('hc_user_session');
 
-  if (!sessionCookie || !sessionCookie.value) {
+  if (!session) {
     return NextResponse.json({ authenticated: false, user: null });
   }
 
   try {
-    const session = JSON.parse(sessionCookie.value);
-    return NextResponse.json({
-      authenticated: true,
-      user: session.user
-    });
+    const data = JSON.parse(session.value);
+    return NextResponse.json({ authenticated: true, user: data.user });
   } catch {
     return NextResponse.json({ authenticated: false, user: null });
   }
 }
-

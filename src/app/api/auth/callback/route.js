@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server';
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const code = searchParams.get('code');
-  const state = searchParams.get('state');
 
   const clientId = process.env.HACKCLUB_CLIENT_ID;
   const clientSecret = process.env.HACKCLUB_CLIENT_SECRET;
@@ -19,13 +18,9 @@ export async function GET(request) {
   }
 
   try {
-    // 1. Server-side token exchange (completely immune to browser CORS!)
     const tokenRes = await fetch('https://auth.hackclub.com/oauth/token', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'User-Agent': 'CursedSocials-NextJS/1.0'
-      },
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({
         grant_type: 'authorization_code',
         client_id: clientId,
@@ -37,97 +32,72 @@ export async function GET(request) {
 
     const tokenData = await tokenRes.json();
     if (!tokenRes.ok || !tokenData.access_token) {
-      console.error('Token exchange failed:', tokenData);
       return NextResponse.redirect(`${appUrl}/?auth_error=token_failed`);
     }
 
-    // 2. Fetch user profile from id_token, /oauth/userinfo, and /api/v1/me
-    let userData = {};
+    let user = {};
 
-    // Helper to safely merge non-empty keys
-    const mergeSafe = (target, source) => {
-      if (!source || typeof source !== 'object') return;
-      for (const [key, val] of Object.entries(source)) {
-        if (val !== undefined && val !== null && val !== '') {
-          target[key] = val;
-        }
-      }
-    };
-
-    // A. Decode id_token JWT payload if present
     if (tokenData.id_token) {
       try {
         const parts = tokenData.id_token.split('.');
-        if (parts.length >= 2) {
-          const payloadBase64 = parts[1].replace(/-/g, '+').replace(/_/g, '/');
-          const decoded = JSON.parse(Buffer.from(payloadBase64, 'base64').toString('utf8'));
-          mergeSafe(userData, decoded);
-        }
-      } catch (e) {
-        console.error('Error decoding id_token:', e);
-      }
+        const decoded = JSON.parse(Buffer.from(parts[1], 'base64').toString());
+        Object.assign(user, decoded);
+      } catch (e) {}
     }
 
-    // B. Fetch OIDC /oauth/userinfo
     try {
-      const oidcUserRes = await fetch('https://auth.hackclub.com/oauth/userinfo', {
-        headers: {
-          Authorization: `Bearer ${tokenData.access_token}`,
-          'User-Agent': 'CursedSocials-NextJS/1.0'
-        }
+      const r = await fetch('https://auth.hackclub.com/oauth/userinfo', {
+        headers: { Authorization: `Bearer ${tokenData.access_token}` }
       });
-      if (oidcUserRes.ok) {
-        const oidcData = await oidcUserRes.json();
-        mergeSafe(userData, oidcData);
-      }
-    } catch (e) {
-      console.error('Error fetching /oauth/userinfo:', e);
-    }
+      if (r.ok) Object.assign(user, await r.json());
+    } catch (e) {}
 
-    // C. Fetch Hack Club /api/v1/me
     try {
-      const userRes = await fetch('https://auth.hackclub.com/api/v1/me', {
-        headers: {
-          Authorization: `Bearer ${tokenData.access_token}`,
-          'User-Agent': 'CursedSocials-NextJS/1.0'
-        }
+      const r = await fetch('https://auth.hackclub.com/api/v1/me', {
+        headers: { Authorization: `Bearer ${tokenData.access_token}` }
       });
-      if (userRes.ok) {
-        const apiData = await userRes.json();
-        if (apiData.identity && typeof apiData.identity === 'object') {
-          mergeSafe(userData, apiData.identity);
-        }
-        if (apiData.user && typeof apiData.user === 'object') {
-          mergeSafe(userData, apiData.user);
-        }
-        mergeSafe(userData, apiData);
+      if (r.ok) {
+        const data = await r.json();
+        if (data.identity) Object.assign(user, data.identity);
+        else Object.assign(user, data);
       }
-    } catch (e) {
-      console.error('Error fetching /api/v1/me:', e);
+    } catch (e) {}
+
+    const clubApiKey = process.env.CLUBAPI_KEY;
+    if (clubApiKey) {
+      const headers = { Authorization: clubApiKey };
+      if (user.slack_id && !user.club) {
+        try {
+          const r = await fetch(`https://clubapi.hackclub.com/leader/slack?slackid=${user.slack_id}`, { headers, signal: AbortSignal.timeout(4000) });
+          if (r.ok) {
+            const d = await r.json();
+            if (d.club_name) user.club = d.club_name;
+          }
+        } catch (e) {}
+      }
+      if (!user.club && (user.primary_email || user.email)) {
+        try {
+          const email = user.primary_email || user.email;
+          const r = await fetch(`https://clubapi.hackclub.com/member/email?email=${email}`, { headers, signal: AbortSignal.timeout(4000) });
+          if (r.ok) {
+            const d = await r.json();
+            if (d.club_name) user.club = d.club_name;
+          }
+        } catch (e) {}
+      }
     }
 
-    console.log('Final Combined Hack Club User Data:', JSON.stringify(userData, null, 2));
-
-    // 4. Set encrypted/secure session cookie
     const response = NextResponse.redirect(`${appUrl}/`);
-    const sessionPayload = JSON.stringify({
-      user: userData,
-      token: tokenData.access_token,
-      loginTime: Date.now()
-    });
-
-    response.cookies.set('hc_user_session', sessionPayload, {
-      httpOnly: false, // Accessible to client-side components
+    response.cookies.set('hc_user_session', JSON.stringify({ user, token: tokenData.access_token }), {
+      httpOnly: false,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
-      maxAge: 60 * 60 * 24 * 30, // 30 days
+      maxAge: 60 * 60 * 24 * 30,
       path: '/'
     });
 
     return response;
   } catch (err) {
-    console.error('OAuth callback error:', err);
     return NextResponse.redirect(`${appUrl}/?auth_error=${encodeURIComponent(err.message)}`);
   }
 }
-
