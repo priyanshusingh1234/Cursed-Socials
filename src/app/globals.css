@@ -20,14 +20,9 @@ body {
   transform-origin: center center;
 }
 
-/* Whole site flips 180° upside-down when cursed */
 body.cursed-upside-down {
   transform: rotate(180deg);
 }
-
-/* ============================================================
-   CURSED FEATURE HINT (Translucent, elongated in left blank space)
-============================================================ */
 
 .cursed-hint {
   position: fixed;
@@ -71,10 +66,6 @@ body.cursed-upside-down {
   text-transform: lowercase;
 }
 
-/* ============================================================
-   1. HERO SECTION (Full Viewport Stage with Rotated Drawing)
-============================================================ */
-
 .hero-section {
   width: 100%;
   min-height: 100vh;
@@ -86,7 +77,6 @@ body.cursed-upside-down {
   background-color: #dedae3;
 }
 
-/* Stage container maintaining exactly the 1613 : 975 landscape aspect ratio */
 .stage {
   position: absolute;
   top: 50%;
@@ -98,7 +88,6 @@ body.cursed-upside-down {
   user-select: none;
 }
 
-/* Rotated image inside stage matching exact dimensions */
 .bg-image {
   position: absolute;
   top: 50%;
@@ -113,7 +102,6 @@ body.cursed-upside-down {
   pointer-events: none;
 }
 
-/* Accurately tracked navigation across the horizontal boxes */
 .nav-bar {
   position: absolute;
   top: 1.8%;
@@ -125,7 +113,6 @@ body.cursed-upside-down {
   z-index: 100;
 }
 
-/* Individual horizontal boxes with matching parallelogram tilt */
 .nav-box {
   flex: 1;
   height: 100%;
@@ -137,7 +124,6 @@ body.cursed-upside-down {
   cursor: pointer;
 }
 
-/* Nav text with centered origin for in-place upside-down flip */
 .nav-text {
   display: inline-block;
   transform-origin: center;
@@ -151,15 +137,10 @@ body.cursed-upside-down {
               text-shadow 0.2s ease;
 }
 
-/* Hover: Text flips upside down in place */
 .nav-box:hover .nav-text {
   transform: skewX(15deg) rotate(180deg);
   text-shadow: 0 -1px 3px rgba(20, 15, 60, 0.8), 0 0 4px rgba(255, 255, 255, 0.6);
 }
-
-/* ============================================================
-   TRANSPARENT SHAPE CONTAINERS IN HERO
-============================================================ */
 
 .shape-container {
   position: absolute;
@@ -172,7 +153,6 @@ body.cursed-upside-down {
               filter 0.25s ease;
 }
 
-/* Pulse on click navigation */
 .shape-container.active-highlight {
   animation: shapeGlow 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -183,7 +163,6 @@ body.cursed-upside-down {
   100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(70, 58, 148, 0)); }
 }
 
-/* 1. TRIANGLE SHAPE */
 .shape-triangle {
   left: 6.5%;
   top: 52.0%;
@@ -248,7 +227,6 @@ body.cursed-upside-down {
   text-shadow: 0 1px 2px rgba(20, 15, 60, 0.8);
 }
 
-/* 2. SQUARE SHAPE */
 .shape-square {
   left: 36.2%;
   top: 52.5%;
@@ -322,7 +300,6 @@ body.cursed-upside-down {
   text-align: center;
 }
 
-/* 3. RECTANGLE SHAPE */
 .shape-rectangle {
   left: 61.2%;
   top: 64.5%;
@@ -388,10 +365,6 @@ body.cursed-upside-down {
   text-align: center;
 }
 
-/* ============================================================
-   2. ABOUT SECTION (Matching Hero Stage Size & Scale)
-============================================================ */
-
 .about-section {
   width: 100%;
   min-height: 100vh;
@@ -404,7 +377,6 @@ body.cursed-upside-down {
   overflow: hidden;
 }
 
-/* Stage sized identically to hero stage for seamless visual continuity */
 .about-stage {
   position: absolute;
   top: 50%;
@@ -419,7 +391,6 @@ body.cursed-upside-down {
   user-select: none;
 }
 
-/* Top Slanted 3D Box */
 .about-top-box {
   position: absolute;
   left: 28.5%;
@@ -477,7 +448,6 @@ body.cursed-upside-down {
   color: #3b317a;
 }
 
-/* Base style for lower boxes */
 .about-box {
   position: absolute;
   z-index: 10;
@@ -534,7 +504,6 @@ body.cursed-upside-down {
   font-weight: 800;
 }
 
-/* 1. Bottom-Left Box (Step 1: Design) */
 .about-step-1 {
   left: 5.5%;
   top: 34.0%;
@@ -547,7 +516,6 @@ body.cursed-upside-down {
   transform: skewX(17deg);
 }
 
-/* Arrow 1 -> 2 */
 .about-arrow-1 {
   left: 29.5%;
   top: 50.0%;
@@ -555,7 +523,6 @@ body.cursed-upside-down {
   height: 6.0%;
 }
 
-/* 2. Bottom-Middle Box (Step 2: Ship) */
 .about-step-2 {
   left: 36.5%;
   top: 34.0%;
@@ -568,7 +535,6 @@ body.cursed-upside-down {
   transform: skewX(15deg);
 }
 
-/* Arrow 2 -> 3 */
 .about-arrow-2 {
   left: 64.5%;
   top: 51.0%;
@@ -576,7 +542,6 @@ body.cursed-upside-down {
   height: 6.0%;
 }
 
-/* 3. Bottom-Right Box (Step 3: Review & Prize) */
 .about-step-3 {
   left: 71.5%;
   top: 35.0%;
@@ -589,7 +554,6 @@ body.cursed-upside-down {
   transform: skewX(-5deg);
 }
 
-/* Hand-Drawn Sketch Arrows in Gaps */
 .about-arrow {
   position: absolute;
   z-index: 15;
@@ -613,10 +577,6 @@ body.cursed-upside-down {
   fill: none;
 }
 
-/* ============================================================
-   3. FAQ SECTION (Using faq-bg.jpg Hand-Drawn Canvas)
-============================================================ */
-
 .faq-section {
   width: 100%;
   min-height: 100vh;
@@ -629,7 +589,6 @@ body.cursed-upside-down {
   overflow: hidden;
 }
 
-/* Stage maintaining exactly 1600 : 900 aspect ratio */
 .faq-stage {
   position: absolute;
   top: 50%;
@@ -644,7 +603,6 @@ body.cursed-upside-down {
   user-select: none;
 }
 
-/* Slanted FAQ Boxes */
 .faq-box {
   position: absolute;
   z-index: 10;
@@ -680,7 +638,6 @@ body.cursed-upside-down {
   line-height: 1.25;
 }
 
-/* FAQ Box 1 */
 .faq-box-1 {
   left: 28.7%;
   top: 23.3%;
@@ -688,7 +645,6 @@ body.cursed-upside-down {
   height: 13.3%;
 }
 
-/* FAQ Box 2 */
 .faq-box-2 {
   left: 28.1%;
   top: 43.3%;
@@ -696,7 +652,6 @@ body.cursed-upside-down {
   height: 13.3%;
 }
 
-/* FAQ Box 3 */
 .faq-box-3 {
   left: 30.3%;
   top: 59.4%;
@@ -704,7 +659,6 @@ body.cursed-upside-down {
   height: 14.4%;
 }
 
-/* FAQ Box 4 */
 .faq-box-4 {
   left: 30.0%;
   top: 76.6%;
@@ -712,7 +666,6 @@ body.cursed-upside-down {
   height: 15.0%;
 }
 
-/* Paper Toast Notification on Click */
 .paper-toast {
   position: fixed;
   bottom: 2rem;
@@ -737,10 +690,6 @@ body.cursed-upside-down {
   transform: translateX(-50%) translateY(0);
 }
 
-/* ============================================================
-   HACK CLUB YSWS FLAG BANNER (Top Left Hanging Banner)
-============================================================ */
-
 .hackclub-flag-banner {
   position: fixed;
   top: 0;
@@ -762,10 +711,6 @@ body.cursed-upside-down {
   display: block;
   filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.25));
 }
-
-/* ============================================================
-   BEGINNER GUIDE PAPER NOTE (Top Left)
-============================================================ */
 
 .guide-floating-pill {
   position: fixed;
@@ -801,10 +746,6 @@ body.cursed-upside-down {
     display: none;
   }
 }
-
-/* ============================================================
-   HACK CLUB AUTH WIDGET (Top Right Ink Stamp)
-============================================================ */
 
 .auth-floating-wrapper {
   position: fixed;
@@ -949,7 +890,6 @@ body.cursed-upside-down {
 }
 .auth-btn-subtle:hover { color: #cc2200; }
 
-/* Config Helper Modal */
 .auth-modal-overlay {
   position: fixed;
   inset: 0;
@@ -1039,10 +979,6 @@ body.cursed-upside-down {
   transform: translateY(-1px);
 }
 
-/* ============================================================
-   4. UNSLOPPED ZINE FOOTER (Shared across Homepage & Guide)
-============================================================ */
-
 .site-footer {
   width: 100%;
   background: #dedae3;
@@ -1125,7 +1061,6 @@ body.cursed-upside-down {
   opacity: 1;
 }
 
-/* Centered Hero RSVP Stamp (shown only when signed in) */
 .hero-rsvp-center {
   position: absolute;
   top: 45%;
