@@ -83,7 +83,7 @@ export default function HomePage() {
 
   return (
     <>
-      <aside className="cursed-hint" onClick={() => {
+      <aside className="side-cursed-hint" onClick={() => {
         setIsCursed(prev => {
           if (!prev) document.body.classList.add('cursed-upside-down');
           else document.body.classList.remove('cursed-upside-down');
@@ -147,8 +147,8 @@ export default function HomePage() {
           </nav>
 
           {user && (
-            <div className="hero-rsvp-center">
-              <a href="https://rsvp.soon.it/cursed-socials-rsvp" target="_blank" rel="noopener noreferrer" className="hero-rsvp-btn">
+            <div className="rsvp-center-zone">
+              <a href="https://rsvp.soon.it/cursed-socials-rsvp" target="_blank" rel="noopener noreferrer" className="big-rsvp-button">
                 RSVP Now →
               </a>
             </div>
@@ -201,12 +201,12 @@ export default function HomePage() {
 
       <section id="about" className="about-section">
         <div className="about-stage">
-          <div className="about-top-box">
-            <div className="about-top-box-inner">
+          <div className="priyanshu-box">
+            <div className="priyanshu-box-inner">
               <span className="about-badge">Hack Club YSWS</span>
-              <h2 className="about-top-title">About Cursed Socials</h2>
-              <p className="about-top-quote">"You ship silly looking websites, we ship grants to buy silly products or merch!"</p>
-              <span className="about-top-meta">Organiser: Priyanshu Singh • Open to all teens (13–18)</span>
+              <h2 className="priyanshu-about-title">About Cursed Socials</h2>
+              <p className="priyanshu-quote">"You ship silly looking websites, we ship grants to buy silly products or merch!"</p>
+              <span className="priyanshu-meta">Organiser: Priyanshu Singh • Open to all teens (13–18)</span>
             </div>
           </div>
 

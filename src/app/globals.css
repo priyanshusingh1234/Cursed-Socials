@@ -24,7 +24,7 @@ body.cursed-upside-down {
   transform: rotate(180deg);
 }
 
-.cursed-hint {
+.side-cursed-hint {
   position: fixed;
   left: clamp(8px, 1.1vw, 24px);
   top: 50%;
@@ -44,12 +44,12 @@ body.cursed-upside-down {
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-.cursed-hint:hover {
+.side-cursed-hint:hover {
   opacity: 1;
   transform: translateY(-50%) rotate(-1.5deg);
 }
 
-.cursed-hint:active {
+.side-cursed-hint:active {
   transform: translateY(-50%) scale(0.96);
 }
 
@@ -391,7 +391,7 @@ body.cursed-upside-down {
   user-select: none;
 }
 
-.about-top-box {
+.priyanshu-box {
   position: absolute;
   left: 28.5%;
   top: 9.5%;
@@ -404,7 +404,7 @@ body.cursed-upside-down {
   z-index: 10;
 }
 
-.about-top-box-inner {
+.priyanshu-box-inner {
   transform: skewX(14deg);
   width: 100%;
   height: 100%;
@@ -427,14 +427,14 @@ body.cursed-upside-down {
   letter-spacing: 0.04em;
 }
 
-.about-top-title {
+.priyanshu-about-title {
   font-size: clamp(1.15rem, 1.7vw, 1.75rem);
   font-weight: 800;
   color: #1e1750;
   line-height: 1.1;
 }
 
-.about-top-quote {
+.priyanshu-quote {
   font-size: clamp(0.78rem, 1.12vw, 1.15rem);
   font-weight: 700;
   color: #241c5c;
@@ -442,7 +442,7 @@ body.cursed-upside-down {
   font-style: italic;
 }
 
-.about-top-meta {
+.priyanshu-meta {
   font-size: clamp(0.68rem, 0.9vw, 0.92rem);
   font-weight: 700;
   color: #3b317a;
@@ -979,7 +979,7 @@ body.cursed-upside-down {
   transform: translateY(-1px);
 }
 
-.site-footer {
+.foot-footer {
   width: 100%;
   background: #dedae3;
   border-top: 2px dashed rgba(43, 33, 102, 0.28);
@@ -988,7 +988,7 @@ body.cursed-upside-down {
   color: #1e1750;
 }
 
-.site-footer-inner {
+.foot-footer-inner {
   max-width: 860px;
   margin: 0 auto;
   display: flex;
@@ -998,7 +998,7 @@ body.cursed-upside-down {
   text-align: center;
 }
 
-.site-footer-brand {
+.footer-priyanshu-brand {
   display: inline-flex;
   align-items: flex-start;
   gap: 9px;
@@ -1009,7 +1009,7 @@ body.cursed-upside-down {
   line-height: 1.5;
 }
 
-.site-footer-sub {
+.priyanshu-subtext {
   display: block;
   font-size: 0.82rem;
   color: #5a4f8a;
@@ -1018,7 +1018,7 @@ body.cursed-upside-down {
   letter-spacing: 0.01em;
 }
 
-.site-footer-icon {
+.round-hc-icon {
   width: 22px;
   height: 22px;
   border-radius: 50%;
@@ -1027,19 +1027,19 @@ body.cursed-upside-down {
   flex-shrink: 0;
 }
 
-.site-footer-links {
+.foot-links-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 6px 20px;
 }
 
-.site-footer-hc {
+.extra-hc-links {
   opacity: 0.75;
   gap: 4px 16px;
 }
 
-.site-footer-link {
+.foot-link-thing {
   font-family: 'Special Elite', cursive;
   font-size: 0.84rem;
   color: #2b2166;
@@ -1049,19 +1049,19 @@ body.cursed-upside-down {
   transition: color 0.14s ease, border-color 0.14s ease;
 }
 
-.site-footer-hc .site-footer-link {
+.extra-hc-links .foot-link-thing {
   font-size: 0.78rem;
   color: #5a4f8a;
   border-bottom-color: rgba(90, 79, 138, 0.25);
 }
 
-.site-footer-link:hover {
+.foot-link-thing:hover {
   color: #ec3750;
   border-bottom-color: #ec3750;
   opacity: 1;
 }
 
-.hero-rsvp-center {
+.rsvp-center-zone {
   position: absolute;
   top: 45%;
   left: 50%;
@@ -1073,7 +1073,7 @@ body.cursed-upside-down {
   pointer-events: auto;
 }
 
-.hero-rsvp-btn {
+.big-rsvp-button {
   display: inline-block;
   padding: clamp(10px, 1.4vh, 15px) clamp(22px, 2.8vw, 38px);
   background: #ec3750;
@@ -1091,13 +1091,13 @@ body.cursed-upside-down {
   transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
 }
 
-.hero-rsvp-btn:hover {
+.big-rsvp-button:hover {
   background: #d92b43;
   transform: rotate(0deg) translate(-2px, -2px);
   box-shadow: 6px 7px 0 #1e1750;
 }
 
-.hero-rsvp-btn:active {
+.big-rsvp-button:active {
   transform: rotate(0deg) translate(2px, 2px);
   box-shadow: 2px 3px 0 #1e1750;
 }
