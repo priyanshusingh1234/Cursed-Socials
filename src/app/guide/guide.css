@@ -1,5 +1,3 @@
-/* CSS rules for the 10-frame Guide Page */
-
 .guide-page-container {
   background: #dedae3;
   min-height: 100vh;
@@ -65,7 +63,6 @@
   border-bottom-color: rgba(196, 181, 253, 0.55);
 }
 
-/* Inline slide deck inside the paper guide frame */
 .slides-frame-box {
   flex: 1;
   min-height: 0;
@@ -98,7 +95,6 @@
   background: rgba(72, 59, 138, 0.1);
 }
 
-/* stage: landscape 4:3, guide-bg.jpg as the frame */
 .guide-page-wrap {
   display: flex;
   justify-content: center;
@@ -115,7 +111,6 @@
   overflow: hidden;
 }
 
-/* content lives here — grid layout, no white boxes */
 .fc {
   position: absolute;
   top: 13%;
@@ -144,7 +139,6 @@
   gap: 1.2%;
 }
 
-/* vertical rule between columns */
 .vr {
   position: absolute;
   top: 13%;
@@ -155,7 +149,6 @@
   opacity: 0.2;
 }
 
-/* typography */
 .h1 {
   font-family: 'Caveat', cursive;
   font-weight: 700;
@@ -208,7 +201,6 @@
   font-size: 0.85em;
 }
 
-/* Q&A style */
 .q {
   font-family: 'Special Elite', cursive;
   color: #2d2459;
@@ -225,7 +217,6 @@
   border-left: 2px solid #c4b5fd;
 }
 
-/* step row */
 .step {
   display: flex;
   align-items: flex-start;
@@ -259,7 +250,6 @@
   font-size: clamp(0.65rem, 1.3vw, 0.82rem);
 }
 
-/* tool entry */
 .tool-name {
   font-family: 'Caveat', cursive;
   font-weight: 700;
@@ -280,7 +270,6 @@
   line-height: 1.4;
 }
 
-/* code blocks */
 .code {
   background: #1a1035;
   padding: clamp(6px, 1.2vw, 12px) clamp(8px, 1.5vw, 14px);
@@ -293,12 +282,6 @@
   flex-shrink: 0;
 }
 
-.code .co { color: #6a5f8a; }
-.code .ky { color: #c4b5fd; }
-.code .st { color: #a5f3a5; }
-.code .fn { color: #93c5fd; }
-
-/* page title bar */
 .ftitle {
   position: absolute;
   top: 5.5%;
@@ -311,7 +294,6 @@
   white-space: nowrap;
 }
 
-/* chips */
 .chip-line {
   display: flex;
   gap: 6px;
@@ -368,4 +350,3 @@
   letter-spacing: 0.06em;
   box-shadow: 4px 5px 1px rgba(30, 23, 80, 0.4);
 }
-
