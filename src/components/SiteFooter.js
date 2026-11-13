@@ -43,7 +43,7 @@ export default function SiteFooter({ isGuide = false }) {
 
         <nav className="foot-links-row extra-hc-links" aria-label="Hack Club links">
           <a href="https://hackclub.com/" target="_blank" rel="noopener noreferrer" className="foot-link-thing">hackclub.com</a>
-          <a href="https://hackclub.com/slack" target="_blank" rel="noopener noreferrer" className="foot-link-thing">#cursed-socials on slack</a>
+          <a href="https://hackclub.enterprise.slack.com/archives/C0CDPQX3YT0" target="_blank" rel="noopener noreferrer" className="foot-link-thing">#cursed-socials on slack</a>
           <a href="https://hackclub.com/programs" target="_blank" rel="noopener noreferrer" className="foot-link-thing">ysws programs</a>
           <a href="https://hackclub.com/conduct" target="_blank" rel="noopener noreferrer" className="foot-link-thing">code of conduct</a>
           <a href="https://hackclub.com/privacy-and-terms" target="_blank" rel="noopener noreferrer" className="foot-link-thing">privacy</a>
