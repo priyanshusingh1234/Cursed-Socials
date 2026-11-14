@@ -350,3 +350,123 @@
   letter-spacing: 0.06em;
   box-shadow: 4px 5px 1px rgba(30, 23, 80, 0.4);
 }
+
+.demo-card-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+}
+
+.demo-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.demo-badge {
+  font-family: 'Special Elite', cursive;
+  font-size: clamp(0.55rem, 1.1vw, 0.72rem);
+  background: #ec3750;
+  color: #ffffff;
+  padding: 2px 7px;
+  border: 1.5px solid #1e1750;
+  box-shadow: 2px 2px 0 #1e1750;
+}
+
+.demo-hint {
+  font-family: 'Patrick Hand', cursive;
+  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+  color: #483b8a;
+  font-weight: 700;
+}
+
+.demo-post-box {
+  position: relative;
+  flex: 1;
+  min-height: 160px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid #1e1750;
+  padding: 10px 12px;
+  overflow: hidden;
+  box-shadow: 3px 3px 0 rgba(30, 23, 80, 0.25);
+}
+
+.demo-post-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.demo-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ece7f2;
+  border: 1.5px solid #1e1750;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.demo-username {
+  font-family: 'Special Elite', cursive;
+  font-size: 0.78rem;
+  color: #1e1750;
+  font-weight: 700;
+}
+
+.demo-sub {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 0.65rem;
+  color: #6a5f8a;
+}
+
+.demo-post-text {
+  font-family: 'Patrick Hand', cursive;
+  font-size: clamp(0.72rem, 1.3vw, 0.88rem);
+  color: #1e1750;
+  margin-top: 4px;
+  line-height: 1.35;
+}
+
+.demo-run-btn {
+  background: #ec3750;
+  color: #ffffff;
+  border: 2px solid #1e1750;
+  padding: 5px 12px;
+  font-family: 'Special Elite', cursive;
+  font-size: 0.78rem;
+  cursor: pointer;
+  box-shadow: 2px 3px 0 #1e1750;
+  transition: left 0.12s cubic-bezier(0.2, 0.8, 0.3, 1), top 0.12s cubic-bezier(0.2, 0.8, 0.3, 1), background 0.15s ease;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.demo-run-btn.caught {
+  background: #2a7a2a;
+}
+
+.demo-footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Special Elite', cursive;
+  font-size: 0.7rem;
+  color: #2d2459;
+}
+
+.demo-reset-link {
+  background: transparent;
+  border: none;
+  font-family: 'Special Elite', cursive;
+  font-size: 0.7rem;
+  color: #ec3750;
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import SiteFooter from '../../components/SiteFooter';
+import RunawayDemo from '../../components/RunawayDemo';
 import './guide.css';
 
 export const metadata = {
@@ -118,7 +119,7 @@ export default function GuidePage() {
             <div className="col">
               <div className="h2">what even is a Cursed Social?</div>
               <div className="body">
-                pick any social media site — Instagram, TikTok, Twitter, YouTube. copy its layout but make it <strong>funny and weird on purpose.</strong> add at least one cursed feature that makes no sense.
+                pick any social media site — Instagram, TikTok, Twitter, YouTube. recreate its layout in your own style, but make it <strong>funny and weird on purpose.</strong> add at least one cursed feature that makes no sense.
               </div>
               <div className="body">
                 it shouldn&apos;t look like an accident — it should look like you planned it! like a like button that runs away from the cursor, or the whole screen flipping upside down.
@@ -382,47 +383,31 @@ export default function GuidePage() {
 
       <div className="guide-page-wrap">
         <div className="guide-stage">
-          <div className="ftitle">Cursed Trick: The Runaway Button</div>
-          <div className="fc fc-3" style={{ top: '16%' }}>
+          <div className="ftitle">Interactive Demo: The Runaway Button</div>
+          <div className="fc fc-2" style={{ top: '15%' }}>
             <div className="col">
-              <div className="label">1. HTML</div>
-              <div className="body-sm">add a button with an id:</div>
-              <div className="code">{`<button id="run-btn" class="like-btn">
-  Like
-</button>`}</div>
+              <RunawayDemo />
             </div>
 
             <div className="col">
-              <div className="label">2. CSS</div>
-              <div className="body-sm">fixed position so it can move anywhere:</div>
+              <div className="h3">How it works — can you make something unique by combining this code?</div>
+              <div className="body-sm">1. button gets absolute positioning so it can teleport</div>
               <div className="code">{`.like-btn {
-  position: fixed;
-  background: #ff4466;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: top 0.15s, left 0.15s;
+  position: absolute;
+  transition: left 0.12s, top 0.12s;
 }`}</div>
-            </div>
 
-            <div className="col">
-              <div className="label">3. JAVASCRIPT</div>
-              <div className="body-sm">moves away when mouse hovers over it:</div>
+              <div className="body-sm" style={{ marginTop: '2px' }}>2. randomize its coordinates whenever hovered</div>
               <div className="code">{`const btn = document.getElementById('run-btn');
 
 btn.addEventListener('mouseenter', () => {
-  const x = Math.random() * (window.innerWidth - 100);
-  const y = Math.random() * (window.innerHeight - 60);
-
-  btn.style.left = x + 'px';
-  btn.style.top = y + 'px';
+  btn.style.left = Math.random() * 200 + 'px';
+  btn.style.top = Math.random() * 120 + 'px';
 });`}</div>
+              <div className="body-sm" style={{ color: '#483b8a', marginTop: '2px' }}>
+                test it on the left! don&apos;t just stop here — what if dodging plays a sound, flips the card, or shrinks the button each time?
+              </div>
             </div>
-          </div>
-          <div style={{ position: 'absolute', bottom: '3%', left: '9%', right: '9%', fontFamily: "'Patrick Hand', cursive", fontSize: 'clamp(0.62rem, 1.2vw, 0.78rem)', color: '#483b8a', textAlign: 'center' }}>
-            Math.random() picks a random coordinate on the screen whenever you try to hover it.
           </div>
         </div>
       </div>
@@ -432,7 +417,7 @@ btn.addEventListener('mouseenter', () => {
           <div className="vr"></div>
           <div className="fc fc-2">
             <div className="col">
-              <div className="h3">R-Key screen flip trick</div>
+              <div className="h3">Screen Flip Trick (R-Key)</div>
               <div className="body-sm">press R to rotate the entire site 180 degrees.</div>
               <div className="code">{`/* in style.css */
 body.flipped {
@@ -446,24 +431,34 @@ window.addEventListener('keydown', (e) => {
     document.body.classList.toggle('flipped');
   }
 });`}</div>
+              <div className="body-sm" style={{ marginTop: '4px' }}>
+                try pressing R on our homepage — it actually flips!
+              </div>
             </div>
 
             <div className="col">
-              <div className="h3">Other cursed ideas</div>
+              <div className="h3">More Cursed Social Ideas</div>
 
-              <div className="label">SOUND EFFECT ON LIKE</div>
-              <div className="code">{`let count = 0;
+              <div className="label">1. NEGATIVE LIKE COUNTER</div>
+              <div className="code">{`let likes = 100;
 btn.addEventListener('click', () => {
-  count++;
-  if (count % 5 === 0) {
-    new Audio('boing.mp3').play();
-  }
+  likes--; // decreases instead of increasing!
+  counter.textContent = likes + ' likes';
 });`}</div>
 
-              <div className="label" style={{ marginTop: '4px' }}>WEIRD FONT ON EVERY 5TH POST</div>
-              <div className="code">{`.post:nth-child(5n) p {
+              <div className="label" style={{ marginTop: '3px' }}>2. BOING SOUND EFFECT</div>
+              <div className="code">{`btn.addEventListener('click', () => {
+  new Audio('boing.mp3').play();
+});`}</div>
+
+              <div className="label" style={{ marginTop: '3px' }}>3. RANDOM FONT CORRUPTION</div>
+              <div className="code">{`.post:nth-child(3n) {
   font-family: 'Wingdings', cursive;
 }`}</div>
+
+              <div className="body-sm" style={{ color: '#483b8a', marginTop: '4px' }}>
+                <strong>pro tip:</strong> can you make something unique by combining these? remix ideas into your own cursed concept!
+              </div>
             </div>
           </div>
         </div>
