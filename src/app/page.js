@@ -3,12 +3,18 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import SiteFooter from '../components/SiteFooter';
+import SpiderSwarm from '../components/SpiderSwarm';
 
 export default function HomePage() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isCursed, setIsCursed] = useState(false);
   const [avatarError, setAvatarError] = useState(false);
+  const [gangActive, setGangActive] = useState(false);
+
+  function toggleGang() {
+    setGangActive(prev => !prev);
+  }
 
   useEffect(() => {
     fetch('/api/auth/me')
@@ -101,9 +107,20 @@ export default function HomePage() {
         />
       </a>
 
-      <Link href="/guide" className="guide-floating-pill">
-        <span>Beginner Guide →</span>
-      </Link>
+      <div className="top-pills-row">
+        <Link href="/guide" className="guide-floating-pill">
+          <span>Beginner Guide →</span>
+        </Link>
+        <button
+          type="button"
+          onClick={toggleGang}
+          className={`bring-gang-pill ${gangActive ? 'active' : ''}`}
+        >
+          <span>{gangActive ? 'shoo spiders!' : 'bring the gang'}</span>
+        </button>
+      </div>
+
+      <SpiderSwarm active={gangActive} onDismiss={() => setGangActive(false)} />
 
       <div className="auth-floating-wrapper">
         {loading ? (

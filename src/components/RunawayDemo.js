@@ -56,7 +56,7 @@ export default function RunawayDemo() {
 
         <p className="demo-post-text">
           {caught
-            ? '🎉 YOU ACTUALLY CAUGHT IT! You are a certified click master.'
+            ? 'YOU CAUGHT IT! You are a certified click master.'
             : escapes > 0
               ? `Dodged you ${escapes} time${escapes === 1 ? '' : 's'}! Keep trying...`
               : 'just a normal photo of my cat. nothing suspicious here. click like!'}
@@ -74,7 +74,7 @@ export default function RunawayDemo() {
           onTouchStart={dodge}
           onClick={handleCatch}
         >
-          {caught ? '❤️ LIKED!' : 'Like ❤️'}
+          {caught ? 'LIKED!' : 'Like'}
         </button>
       </div>
 

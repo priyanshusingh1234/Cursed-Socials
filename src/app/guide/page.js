@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import SiteFooter from '../../components/SiteFooter';
 import RunawayDemo from '../../components/RunawayDemo';
+import FlipDemo from '../../components/FlipDemo';
+import NegativeLikeDemo from '../../components/NegativeLikeDemo';
+import SpiderHang from '../../components/SpiderHang';
 import './guide.css';
 
 export const metadata = {
@@ -10,6 +13,7 @@ export const metadata = {
 export default function GuidePage() {
   return (
     <div className="guide-page-container">
+      <SpiderHang />
       <div className="topbar">
         <Link href="/">← back to Cursed Socials</Link>
         <a
@@ -418,47 +422,28 @@ btn.addEventListener('mouseenter', () => {
           <div className="fc fc-2">
             <div className="col">
               <div className="h3">Screen Flip Trick (R-Key)</div>
-              <div className="body-sm">press R to rotate the entire site 180 degrees.</div>
-              <div className="code">{`/* in style.css */
-body.flipped {
+              <FlipDemo />
+              <div className="code">{`body.flipped {
   transform: rotate(180deg);
-  transition: transform 0.8s ease;
+  transition: transform 0.6s ease;
 }
 
-/* in script.js */
 window.addEventListener('keydown', (e) => {
   if (e.key === 'r' || e.key === 'R') {
     document.body.classList.toggle('flipped');
   }
 });`}</div>
-              <div className="body-sm" style={{ marginTop: '4px' }}>
-                try pressing R on our homepage — it actually flips!
-              </div>
             </div>
 
             <div className="col">
-              <div className="h3">More Cursed Social Ideas</div>
-
-              <div className="label">1. NEGATIVE LIKE COUNTER</div>
-              <div className="code">{`let likes = 100;
+              <div className="h3">Negative Likes &amp; Sound Trick</div>
+              <NegativeLikeDemo />
+              <div className="code">{`let likes = 10;
 btn.addEventListener('click', () => {
-  likes--; // decreases instead of increasing!
-  counter.textContent = likes + ' likes';
-});`}</div>
-
-              <div className="label" style={{ marginTop: '3px' }}>2. BOING SOUND EFFECT</div>
-              <div className="code">{`btn.addEventListener('click', () => {
+  likes--;
+  btn.textContent = 'Like (' + likes + ')';
   new Audio('boing.mp3').play();
 });`}</div>
-
-              <div className="label" style={{ marginTop: '3px' }}>3. RANDOM FONT CORRUPTION</div>
-              <div className="code">{`.post:nth-child(3n) {
-  font-family: 'Wingdings', cursive;
-}`}</div>
-
-              <div className="body-sm" style={{ color: '#483b8a', marginTop: '4px' }}>
-                <strong>pro tip:</strong> can you make something unique by combining these? remix ideas into your own cursed concept!
-              </div>
             </div>
           </div>
         </div>

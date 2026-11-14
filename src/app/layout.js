@@ -1,4 +1,5 @@
 import './globals.css';
+import './components.css';
 
 export const metadata = {
   title: 'Cursed Socials — Hack Club YSWS',
