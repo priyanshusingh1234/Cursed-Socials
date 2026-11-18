@@ -91,7 +91,7 @@
   transform: rotate(1.2deg);
 }
 
-.drunk-mode-pill {
+.dizzy-mode-pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -110,12 +110,12 @@
   user-select: none;
 }
 
-.drunk-mode-pill:hover {
+.dizzy-mode-pill:hover {
   transform: rotate(0deg) translateY(-2px);
   background: #e4d4ff;
 }
 
-.drunk-mode-pill.active {
+.dizzy-mode-pill.active {
   background: #8b5cf6;
   color: #ffffff;
   transform: rotate(-2.5deg) skewX(-3deg);
