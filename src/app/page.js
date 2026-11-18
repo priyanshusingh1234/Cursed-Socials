@@ -30,10 +30,6 @@ export default function HomePage() {
     setDrunkModeOn(prev => !prev);
   }
 
-  function toggleGravity() {
-    setGravityOn(prev => !prev);
-  }
-
   useEffect(() => {
     fetch('/api/auth/me')
       .then(res => res.json())
@@ -134,7 +130,7 @@ export default function HomePage() {
       <SpiderSwarm active={gangActive} onDismiss={() => setGangActive(false)} />
       <FaultyMouse active={faultyMouseActive} />
       <DrunkMode active={drunkModeOn} />
-      <GravityText active={gravityOn} />
+      <GravityText active={true} />
 
       <CursedToolbox
         gangActive={gangActive}
@@ -143,8 +139,6 @@ export default function HomePage() {
         toggleFaultyMouse={toggleFaultyMouse}
         drunkModeOn={drunkModeOn}
         toggleDrunk={toggleDrunk}
-        gravityOn={gravityOn}
-        toggleGravity={toggleGravity}
       />
 
       <div className="auth-floating-wrapper">

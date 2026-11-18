@@ -5,8 +5,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 export default function CursedToolbox({
   gangActive, toggleGang,
   faultyMouseActive, toggleFaultyMouse,
-  drunkModeOn, toggleDrunk,
-  gravityOn, toggleGravity
+  drunkModeOn, toggleDrunk
 }) {
   const [open, setOpen] = useState(false);
   const [pos, setPos] = useState({ x: 16, y: -1 });
@@ -65,8 +64,7 @@ export default function CursedToolbox({
   const notes = [
     { id: 'gang', lbl: gangActive ? 'shoo spiders!' : 'bring the gang', on: gangActive, fn: toggleGang, rot: '-3.2deg', bg: '#fff9a8', bgOn: '#6dbf4a' },
     { id: 'mouse', lbl: faultyMouseActive ? 'faulty mouse: ON' : 'faulty mouse: OFF', on: faultyMouseActive, fn: toggleFaultyMouse, rot: '2.1deg', bg: '#ffcce0', bgOn: '#ec3750' },
-    { id: 'drunk', lbl: drunkModeOn ? 'sober up' : 'drunk mode', on: drunkModeOn, fn: toggleDrunk, rot: '-1.4deg', bg: '#e0d4ff', bgOn: '#8b5cf6' },
-    { id: 'gravity', lbl: gravityOn ? 'gravity: ON' : 'gravity text', on: gravityOn, fn: toggleGravity, rot: '3.6deg', bg: '#ffe0b2', bgOn: '#e65100' }
+    { id: 'drunk', lbl: drunkModeOn ? 'sober up' : 'drunk mode', on: drunkModeOn, fn: toggleDrunk, rot: '-1.4deg', bg: '#e0d4ff', bgOn: '#8b5cf6' }
   ];
 
   return (
