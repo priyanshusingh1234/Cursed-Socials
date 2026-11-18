@@ -4,6 +4,7 @@ import RunawayDemo from '../../components/RunawayDemo';
 import FlipDemo from '../../components/FlipDemo';
 import NegativeLikeDemo from '../../components/NegativeLikeDemo';
 import SpiderHang from '../../components/SpiderHang';
+import GravityDemo from '../../components/GravityDemo';
 import './guide.css';
 
 export const metadata = {
@@ -16,6 +17,14 @@ export default function GuidePage() {
       <SpiderHang />
       <div className="topbar">
         <Link href="/">← back to Cursed Socials</Link>
+        <a
+          href="/cursed-lesson-1-gravity-text.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="topbar-beginner-tab"
+        >
+          #cursed-lesson-1: Gravity Text (PDF) →
+        </a>
         <a
           href="/beginner-guide.pdf"
           target="_blank"
@@ -410,6 +419,60 @@ btn.addEventListener('mouseenter', () => {
 });`}</div>
               <div className="body-sm" style={{ color: '#483b8a', marginTop: '2px' }}>
                 test it on the left! don&apos;t just stop here — what if dodging plays a sound, flips the card, or shrinks the button each time?
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="guide-page-wrap">
+        <div className="guide-stage fix-my-phone pls-fit-screen">
+          <div className="ftitle">#cursed-lesson-1: Gravity Text (Physics in 60 Lines)</div>
+          <div className="fc fc-2 mobile-unstack-why" style={{ top: '15%' }}>
+            <div className="col teen-col-fix">
+              <GravityDemo />
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '8px' }}>
+                <a
+                  href="/cursed-lesson-1-gravity-text.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cta-btn"
+                >
+                  Open Lesson Slides (PDF) →
+                </a>
+                <a
+                  href="/cursed-lesson-1-gravity-text.pdf"
+                  download="cursed-lesson-1-gravity-text.pdf"
+                  className="cta-btn-outline"
+                >
+                  Download Slides
+                </a>
+              </div>
+            </div>
+
+            <div className="col">
+              <div className="h3">How it works — real JS physics by building something silly</div>
+              <div className="body-sm">1. pick elements to fall with querySelectorAll</div>
+              <div className="code">{`var items = document.querySelectorAll('h1, h2, p');`}</div>
+
+              <div className="body-sm" style={{ marginTop: '2px' }}>2. 60fps physics loop with requestAnimationFrame</div>
+              <div className="code">{`function animate() {
+  d.speed += d.accel;
+  d.y = Math.min(d.y + d.speed, d.maxFall);
+  d.el.style.transform = 'translateY(' + d.y + 'px)';
+  if (d.y < d.maxFall) requestAnimationFrame(animate);
+}`}</div>
+
+              <div className="body-sm" style={{ marginTop: '2px' }}>3. fake scroll-stop event using setTimeout</div>
+              <div className="code">{`window.addEventListener('scroll', function() {
+  clearTimeout(timer);
+  timer = setTimeout(startGravity, 1500);
+});`}</div>
+              <div className="chip-line" style={{ marginTop: 'auto' }}>
+                <span className="chip filled">#cursed-lesson-1</span>
+                <span className="chip">vanilla js</span>
+                <span className="chip green">60 lines</span>
+                <span className="chip red">requestAnimationFrame</span>
               </div>
             </div>
           </div>
