@@ -43,10 +43,10 @@ export default function GuidePage() {
       </div>
 
       <div className="guide-page-wrap">
-        <div className="guide-stage">
+        <div className="guide-stage fix-my-phone pls-fit-screen">
           <div className="vr"></div>
-          <div className="fc fc-2">
-            <div className="col">
+          <div className="fc fc-2 mobile-unstack-why">
+            <div className="col teen-col-fix">
               <div className="h2">Absolute beginner?<br />Read these slides first.</div>
               <div className="body">
                 never coded a site or used git before? read our <strong>beginner starter slides</strong> before going through this guide.
@@ -94,10 +94,10 @@ export default function GuidePage() {
       </div>
 
       <div className="guide-page-wrap">
-        <div className="guide-stage">
+        <div className="guide-stage fix-my-phone pls-fit-screen">
           <div className="vr"></div>
-          <div className="fc fc-2">
-            <div className="col">
+          <div className="fc fc-2 mobile-unstack-why">
+            <div className="col teen-col-fix">
               <div className="h1">How to Build a<br />Cursed Social</div>
               <div className="body">
                 a guide for teens who want to ship a deliberately silly social media clone and get a <strong>$5–$10 Hack Club grant</strong>.
@@ -221,10 +221,10 @@ export default function GuidePage() {
       </div>
 
       <div className="guide-page-wrap">
-        <div className="guide-stage">
+        <div className="guide-stage fix-my-phone pls-fit-screen">
           <div className="vr"></div>
-          <div className="fc fc-2">
-            <div className="col">
+          <div className="fc fc-2 mobile-unstack-why">
+            <div className="col teen-col-fix">
               <div className="h2">The Rules</div>
 
               <div className="step">
@@ -386,10 +386,10 @@ export default function GuidePage() {
       </div>
 
       <div className="guide-page-wrap">
-        <div className="guide-stage">
+        <div className="guide-stage fix-my-phone pls-fit-screen">
           <div className="ftitle">Interactive Demo: The Runaway Button</div>
-          <div className="fc fc-2" style={{ top: '15%' }}>
-            <div className="col">
+          <div className="fc fc-2 mobile-unstack-why" style={{ top: '15%' }}>
+            <div className="col teen-col-fix">
               <RunawayDemo />
             </div>
 
@@ -417,10 +417,10 @@ btn.addEventListener('mouseenter', () => {
       </div>
 
       <div className="guide-page-wrap">
-        <div className="guide-stage">
+        <div className="guide-stage fix-my-phone pls-fit-screen">
           <div className="vr"></div>
-          <div className="fc fc-2">
-            <div className="col">
+          <div className="fc fc-2 mobile-unstack-why">
+            <div className="col teen-col-fix">
               <div className="h3">Screen Flip Trick (R-Key)</div>
               <FlipDemo />
               <div className="code">{`body.flipped {
@@ -490,10 +490,10 @@ btn.addEventListener('click', () => {
       </div>
 
       <div className="guide-page-wrap">
-        <div className="guide-stage">
+        <div className="guide-stage fix-my-phone pls-fit-screen">
           <div className="vr"></div>
-          <div className="fc fc-2">
-            <div className="col">
+          <div className="fc fc-2 mobile-unstack-why">
+            <div className="col teen-col-fix">
               <div className="h2">Publishing your site</div>
 
               <div className="step"><div className="stepn">1</div><div className="step-body">go to <strong>netlify.com/drop</strong> or Vercel</div></div>

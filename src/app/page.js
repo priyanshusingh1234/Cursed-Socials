@@ -4,6 +4,10 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import SiteFooter from '../components/SiteFooter';
 import SpiderSwarm from '../components/SpiderSwarm';
+import FaultyMouse from '../components/FaultyMouse';
+import DrunkMode from '../components/DrunkMode';
+import GravityText from '../components/GravityText';
+import CursedToolbox from '../components/CursedToolbox';
 
 export default function HomePage() {
   const [user, setUser] = useState(null);
@@ -11,9 +15,23 @@ export default function HomePage() {
   const [isCursed, setIsCursed] = useState(false);
   const [avatarError, setAvatarError] = useState(false);
   const [gangActive, setGangActive] = useState(false);
+  const [faultyMouseActive, setFaultyMouseActive] = useState(true);
+  const [drunkModeOn, setDrunkModeOn] = useState(false);
 
   function toggleGang() {
     setGangActive(prev => !prev);
+  }
+
+  function toggleFaultyMouse() {
+    setFaultyMouseActive(prev => !prev);
+  }
+
+  function toggleDrunk() {
+    setDrunkModeOn(prev => !prev);
+  }
+
+  function toggleGravity() {
+    setGravityOn(prev => !prev);
   }
 
   useEffect(() => {
@@ -111,16 +129,23 @@ export default function HomePage() {
         <Link href="/guide" className="guide-floating-pill">
           <span>Beginner Guide →</span>
         </Link>
-        <button
-          type="button"
-          onClick={toggleGang}
-          className={`bring-gang-pill ${gangActive ? 'active' : ''}`}
-        >
-          <span>{gangActive ? 'shoo spiders!' : 'bring the gang'}</span>
-        </button>
       </div>
 
       <SpiderSwarm active={gangActive} onDismiss={() => setGangActive(false)} />
+      <FaultyMouse active={faultyMouseActive} />
+      <DrunkMode active={drunkModeOn} />
+      <GravityText active={gravityOn} />
+
+      <CursedToolbox
+        gangActive={gangActive}
+        toggleGang={toggleGang}
+        faultyMouseActive={faultyMouseActive}
+        toggleFaultyMouse={toggleFaultyMouse}
+        drunkModeOn={drunkModeOn}
+        toggleDrunk={toggleDrunk}
+        gravityOn={gravityOn}
+        toggleGravity={toggleGravity}
+      />
 
       <div className="auth-floating-wrapper">
         {loading ? (
@@ -217,7 +242,7 @@ export default function HomePage() {
       </main>
 
       <section id="about" className="about-section">
-        <div className="about-stage">
+        <div className="about-stage about-mobile-fix">
           <div className="priyanshu-box">
             <div className="priyanshu-box-inner">
               <span className="about-badge">Hack Club YSWS</span>
@@ -269,7 +294,7 @@ export default function HomePage() {
       </section>
 
       <section id="faq" className="faq-section">
-        <div className="faq-stage">
+        <div className="faq-stage faq-phone-patch">
           <article className="faq-box faq-box-1">
             <div className="faq-box-inner">
               <h3 className="faq-question">Who can participate?</h3>
