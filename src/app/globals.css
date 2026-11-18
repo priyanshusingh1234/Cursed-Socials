@@ -24,11 +24,11 @@ body.cursed-upside-down {
   transform: rotate(180deg);
 }
 
-body.page-is-drunk-lol {
-  animation: wobblyDrunkSway 2.8s ease-in-out infinite;
+body.page-is-dizzy-lol {
+  animation: wobblyDizzySway 2.8s ease-in-out infinite;
 }
 
-@keyframes wobblyDrunkSway {
+@keyframes wobblyDizzySway {
   0% { transform: rotate(0deg) skewX(0deg) translateX(0px); }
   15% { transform: rotate(-0.7deg) skewX(0.4deg) translateX(-3px); }
   30% { transform: rotate(0.5deg) skewX(-0.3deg) translateX(4px); }
@@ -39,11 +39,11 @@ body.page-is-drunk-lol {
   100% { transform: rotate(0deg) skewX(0deg) translateX(0px); }
 }
 
-body.page-is-drunk-lol.cursed-upside-down {
-  animation: wobblyDrunkFlipped 2.8s ease-in-out infinite;
+body.page-is-dizzy-lol.cursed-upside-down {
+  animation: wobblyDizzyFlipped 2.8s ease-in-out infinite;
 }
 
-@keyframes wobblyDrunkFlipped {
+@keyframes wobblyDizzyFlipped {
   0% { transform: rotate(180deg) skewX(0deg) translateX(0px); }
   15% { transform: rotate(179.3deg) skewX(0.4deg) translateX(-3px); }
   30% { transform: rotate(180.5deg) skewX(-0.3deg) translateX(4px); }

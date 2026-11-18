@@ -5,7 +5,7 @@ import Link from 'next/link';
 import SiteFooter from '../components/SiteFooter';
 import SpiderSwarm from '../components/SpiderSwarm';
 import FaultyMouse from '../components/FaultyMouse';
-import DrunkMode from '../components/DrunkMode';
+import DizzyMode from '../components/DizzyMode';
 import GravityText from '../components/GravityText';
 import CursedToolbox from '../components/CursedToolbox';
 
@@ -16,7 +16,7 @@ export default function HomePage() {
   const [avatarError, setAvatarError] = useState(false);
   const [gangActive, setGangActive] = useState(false);
   const [faultyMouseActive, setFaultyMouseActive] = useState(true);
-  const [drunkModeOn, setDrunkModeOn] = useState(false);
+  const [dizzyModeOn, setDizzyModeOn] = useState(false);
 
   function toggleGang() {
     setGangActive(prev => !prev);
@@ -26,8 +26,8 @@ export default function HomePage() {
     setFaultyMouseActive(prev => !prev);
   }
 
-  function toggleDrunk() {
-    setDrunkModeOn(prev => !prev);
+  function toggleDizzy() {
+    setDizzyModeOn(prev => !prev);
   }
 
   useEffect(() => {
@@ -129,7 +129,7 @@ export default function HomePage() {
 
       <SpiderSwarm active={gangActive} onDismiss={() => setGangActive(false)} />
       <FaultyMouse active={faultyMouseActive} />
-      <DrunkMode active={drunkModeOn} />
+      <DizzyMode active={dizzyModeOn} />
       <GravityText active={true} />
 
       <CursedToolbox
@@ -137,8 +137,8 @@ export default function HomePage() {
         toggleGang={toggleGang}
         faultyMouseActive={faultyMouseActive}
         toggleFaultyMouse={toggleFaultyMouse}
-        drunkModeOn={drunkModeOn}
-        toggleDrunk={toggleDrunk}
+        dizzyModeOn={dizzyModeOn}
+        toggleDizzy={toggleDizzy}
       />
 
       <div className="auth-floating-wrapper">
