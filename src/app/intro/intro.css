@@ -1,63 +1,110 @@
 .intro-page {
   min-height: 100vh;
-  background: #f4ecdc;
-  color: #24211f;
+  width: 100%;
+  background: #0d0c15;
+  color: #f2edf9;
   font-family: 'Fredoka', 'Nunito', system-ui, -apple-system, sans-serif;
   line-height: 1.6;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 .intro-wrap {
-  max-width: 820px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 .intro-banner {
-  background: #c88aa6;
-  border-bottom: 4px solid #24211f;
-  padding: 40px 0 36px;
+  background: #171228;
+  border-bottom: 3.5px solid #2e244d;
+  padding: 38px 0 32px;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.intro-banner-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
 .intro-hc {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #24211f;
-  color: #fff;
+  background: #231c3c;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 800;
   font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  padding: 4px 12px 4px 8px;
-  border-radius: 6px;
-  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+  padding: 5px 14px 5px 10px;
+  border-radius: 999px;
+  border: 1.5px solid #43356e;
+  box-shadow: 2px 2px 0 #090710;
+  transform: rotate(-1deg);
+  transition: transform 0.15s ease;
+}
+
+.intro-hc:hover {
+  transform: rotate(1deg) scale(1.03);
 }
 
 .intro-hc img {
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 19px;
+}
+
+.intro-theme-btn {
+  background: #221a38;
+  border: 2px solid #483973;
+  border-radius: 999px;
+  padding: 7px 18px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #f2edf9;
+  cursor: pointer;
+  box-shadow: 2.5px 2.5px 0 #090710;
+  transform: rotate(1deg);
+  transition: all 0.15s ease;
+}
+
+.intro-theme-btn:hover {
+  background: #312552;
+  border-color: #634f9e;
+  transform: rotate(0deg) scale(1.04);
 }
 
 .intro-logo {
   margin: 0;
-  font-size: clamp(2.6rem, 7vw, 4.2rem);
+  font-size: clamp(2.7rem, 7.5vw, 4.4rem);
   font-weight: 900;
-  line-height: 1.05;
-  color: #fff;
-  -webkit-text-stroke: 8px #24211f;
-  paint-order: stroke fill;
+  line-height: 1.02;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-shadow: 3px 3px 0 #3a1e78, 6px 6px 0 #180936;
+}
+
+.intro-logo-sub {
+  margin: 10px 0 0;
+  font-size: clamp(1rem, 2.4vw, 1.3rem);
+  font-weight: 700;
+  color: #b7a8d4;
+  letter-spacing: 0.01em;
 }
 
 .intro-hero {
-  padding: 44px 0 36px;
+  padding: 42px 0 24px;
 }
 
 .intro-tagline {
   margin: 0 0 28px;
-  font-size: clamp(1.45rem, 3vw, 2rem);
-  font-weight: 700;
-  line-height: 1.3;
-  max-width: 34ch;
+  font-size: clamp(1.4rem, 3.2vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1.32;
+  color: #f7f3ff;
+  max-width: 36ch;
 }
 
 .intro-buttons {
@@ -69,213 +116,289 @@
 
 .intro-pill {
   display: inline-block;
-  padding: 12px 24px;
-  border: 2.5px solid #24211f;
+  padding: 12px 26px;
+  border: 2.5px solid #483a73;
   border-radius: 999px;
-  color: #24211f;
+  background: #19142b;
+  color: #f2edf9;
   text-decoration: none;
   font-size: 1.05rem;
-  font-weight: 600;
+  font-weight: 800;
+  box-shadow: 3px 3px 0 #080611;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
 .intro-pill:hover {
-  background: #e9dec8;
+  background: #251e3e;
+  transform: translateY(-2px);
+  box-shadow: 4px 5px 0 #080611;
+}
+
+.intro-pill:active {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 0 #080611;
+}
+
+.intro-pill-fill {
+  background: #6c3ce8;
+  color: #ffffff;
+  border-color: #8b5ffb;
+  box-shadow: 3px 3px 0 #281261;
+}
+
+.intro-pill-fill:hover {
+  background: #5d2ad6;
+  border-color: #a07aff;
+  box-shadow: 4px 5px 0 #281261;
+}
+
+.intro-pill-red {
+  background: #ec3750;
+  color: #ffffff;
+  border-color: #ff5971;
+  box-shadow: 3px 3px 0 #540b17;
+  transform: rotate(-0.8deg);
+}
+
+.intro-pill-red:hover {
+  background: #d8253e;
+  border-color: #ff758b;
+  box-shadow: 4px 5px 0 #540b17;
 }
 
 .intro-block {
-  padding: 24px 0 28px;
-  max-width: 660px;
+  margin: 32px 0;
+  padding: 28px 28px 30px;
+  background: #151124;
+  border: 2.5px solid #2a2046;
+  border-radius: 16px;
+  box-shadow: 4px 4px 0 #080610;
 }
 
 .intro-block h2 {
   margin: 0 0 8px;
-  font-size: 1.55rem;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.01em;
 }
 
 .intro-note {
-  margin: 0 0 18px;
-  color: #5c554d;
+  margin: 0 0 20px;
+  color: #9d8eb9;
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 .intro-list {
   margin: 0;
-  padding-left: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.intro-steps {
-  margin: 14px 0 0;
   padding-left: 22px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
+  font-size: 1.05rem;
+  color: #ddd4ed;
+}
+
+.intro-list strong {
+  color: #ffffff;
+}
+
+.intro-steps {
+  margin: 18px 0 0;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: 1.05rem;
+  color: #ddd4ed;
+}
+
+.intro-steps strong {
+  color: #ffffff;
 }
 
 .intro-steps a {
-  color: #24211f;
-  font-weight: 700;
+  color: #ff6b8b;
+  font-weight: 800;
+  text-decoration: underline;
 }
 
 .intro-steps pre {
-  margin: 10px 0 0;
-  padding: 14px 16px;
-  background: #24211f;
-  color: #f4ecdc;
-  border-radius: 10px;
-  font-family: ui-monospace, 'Fira Code', monospace;
-  font-size: 0.85rem;
+  margin: 12px 0 0;
+  padding: 16px 18px;
+  background: #090712;
+  color: #c9bcf2;
+  border: 2px solid #281f42;
+  border-radius: 12px;
+  font-family: ui-monospace, 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.88rem;
   line-height: 1.55;
   white-space: pre;
   overflow-x: auto;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 .intro-footer {
-  margin-top: 40px;
-  border-top: 2px solid rgba(36, 33, 31, 0.15);
-  padding: 22px 0 32px;
-  font-size: 0.9rem;
-  color: #5c554d;
+  margin-top: 50px;
+  border-top: 2.5px solid #241c3d;
+  padding: 26px 0 40px;
+  font-size: 0.95rem;
+  color: #8c7ea8;
 }
 
 .intro-footer-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 16px;
 }
 
 .intro-footer-links {
   display: flex;
-  gap: 16px;
+  gap: 18px;
 }
 
 .intro-footer-links a {
-  color: #24211f;
+  color: #b7a8d4;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  transition: color 0.15s ease;
 }
 
 .intro-footer-links a:hover {
+  color: #ffffff;
   text-decoration: underline;
 }
 
-.intro-banner-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.intro-theme-btn {
-  background: rgba(255, 255, 255, 0.25);
-  border: 2px solid #24211f;
-  border-radius: 999px;
-  padding: 6px 18px;
-  font-family: inherit;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #24211f;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-
-.intro-theme-btn:hover {
-  background: rgba(255, 255, 255, 0.45);
-}
-
-.intro-logo-sub {
-  margin: 6px 0 0;
-  font-size: clamp(0.95rem, 2.5vw, 1.3rem);
-  font-weight: 600;
-  color: #24211f;
-  opacity: 0.7;
-}
-
-.intro-pill-fill {
-  background: #24211f;
-  color: #f4ecdc;
-}
-
-.intro-pill-fill:hover {
-  background: #3a3630;
-}
-
-.intro-pill-red {
-  background: #ec3750;
-  color: #fff;
-  border-color: #ec3750;
-}
-
-.intro-pill-red:hover {
-  background: #d92b43;
-}
-
 .intro-page.intro-light {
-  background: #fffdf8;
-  color: #1a1a1a;
+  background: #faf7f2;
+  color: #1f1b26;
 }
 
 .intro-light .intro-banner {
-  background: #ffd6e7;
-  border-bottom-color: #1a1a1a;
+  background: #f1e9dc;
+  border-bottom-color: #24202c;
 }
 
 .intro-light .intro-hc {
-  background: #1a1a1a;
-}
-
-.intro-light .intro-logo {
-  color: #fffdf8;
-  -webkit-text-stroke-color: #1a1a1a;
-}
-
-.intro-light .intro-logo-sub {
-  color: #1a1a1a;
+  background: #24202c;
+  color: #ffffff;
+  border-color: #24202c;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.15);
 }
 
 .intro-light .intro-theme-btn {
-  background: rgba(0, 0, 0, 0.08);
-  border-color: #1a1a1a;
-  color: #1a1a1a;
+  background: #ffffff;
+  border-color: #24202c;
+  color: #24202c;
+  box-shadow: 2.5px 2.5px 0 #24202c;
 }
 
 .intro-light .intro-theme-btn:hover {
-  background: rgba(0, 0, 0, 0.15);
+  background: #eee6d8;
+}
+
+.intro-light .intro-logo {
+  color: #24202c;
+  text-shadow: 3px 3px 0 #e4c2cf, 6px 6px 0 #f6dfe8;
+}
+
+.intro-light .intro-logo-sub {
+  color: #5c5468;
+}
+
+.intro-light .intro-tagline {
+  color: #1f1b26;
 }
 
 .intro-light .intro-pill {
-  border-color: #1a1a1a;
-  color: #1a1a1a;
+  background: #ffffff;
+  border-color: #24202c;
+  color: #24202c;
+  box-shadow: 3px 3px 0 #24202c;
 }
 
 .intro-light .intro-pill:hover {
-  background: #f0ece0;
+  background: #ede6d8;
+  box-shadow: 4px 5px 0 #24202c;
 }
 
 .intro-light .intro-pill-fill {
-  background: #1a1a1a;
-  color: #fffdf8;
+  background: #24202c;
+  color: #ffffff;
+  border-color: #24202c;
+  box-shadow: 3px 3px 0 #7b718c;
+}
+
+.intro-light .intro-pill-fill:hover {
+  background: #383244;
+  box-shadow: 4px 5px 0 #7b718c;
+}
+
+.intro-light .intro-pill-red {
+  background: #ec3750;
+  color: #ffffff;
+  border-color: #24202c;
+  box-shadow: 3px 3px 0 #24202c;
+}
+
+.intro-light .intro-block {
+  background: #ffffff;
+  border-color: #24202c;
+  box-shadow: 4px 4px 0 #24202c;
+}
+
+.intro-light .intro-block h2 {
+  color: #24202c;
 }
 
 .intro-light .intro-note {
-  color: #666;
+  color: #635b71;
 }
 
-.intro-light .intro-steps pre {
-  background: #1a1a1a;
-  color: #fffdf8;
+.intro-light .intro-list {
+  color: #332d3d;
+}
+
+.intro-light .intro-list strong {
+  color: #1f1b26;
+}
+
+.intro-light .intro-steps {
+  color: #332d3d;
+}
+
+.intro-light .intro-steps strong {
+  color: #1f1b26;
 }
 
 .intro-light .intro-steps a {
-  color: #1a1a1a;
+  color: #c71e3b;
+}
+
+.intro-light .intro-steps pre {
+  background: #1f1b26;
+  color: #f7f3ed;
+  border-color: #1f1b26;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.15);
 }
 
 .intro-light .intro-footer {
-  border-top-color: rgba(0, 0, 0, 0.1);
-  color: #666;
+  border-top-color: rgba(36, 32, 44, 0.2);
+  color: #635b71;
 }
 
 .intro-light .intro-footer-links a {
-  color: #1a1a1a;
+  color: #24202c;
+}
+
+.intro-light .intro-footer-links a:hover {
+  color: #ec3750;
+}
+
+
+.intro-light .intro-footer-links a:hover {
+  color: #ec3750;
 }

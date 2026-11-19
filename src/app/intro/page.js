@@ -1,14 +1,30 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './intro.css';
 
 export default function IntroPage() {
   const [light, setLight] = useState(false);
 
+  useEffect(() => {
+    const origBg = document.body.style.backgroundColor;
+    const origColor = document.body.style.color;
+    if (light) {
+      document.body.style.backgroundColor = '#faf7f2';
+      document.body.style.color = '#1c1824';
+    } else {
+      document.body.style.backgroundColor = '#0d0c15';
+      document.body.style.color = '#f2edf9';
+    }
+    return () => {
+      document.body.style.backgroundColor = origBg;
+      document.body.style.color = origColor;
+    };
+  }, [light]);
+
   return (
-    <div className={`intro-page ${light ? 'intro-light' : ''}`}>
+    <div className={`intro-page ${light ? 'intro-light' : 'intro-dark'}`}>
       <header className="intro-banner">
         <div className="intro-wrap intro-banner-row">
           <a
@@ -32,61 +48,65 @@ export default function IntroPage() {
 
         <div className="intro-wrap">
           <h1 className="intro-logo">cursed socials.</h1>
-          <p className="intro-logo-sub">part 1 — learn to build stuff</p>
+          <p className="intro-logo-sub">part 1: build whatever you want</p>
         </div>
       </header>
 
       <main className="intro-wrap">
         <section className="intro-hero">
           <p className="intro-tagline">
-            Build your first real website with HTML, CSS, and JS — any kind of
-            site you want. We will send you a $5–$10 grant when you ship it!
+            Make your own website from scratch using plain HTML, CSS, and a
+            little bit of JavaScript. It can be about literally anything you
+            want. Once you put it online, Hack Club sends you $5 to $10 to buy
+            whatever you like.
           </p>
 
           <div className="intro-buttons">
             <Link href="/guide" className="intro-pill intro-pill-fill">
-              read the guide
+              see the guide
             </Link>
             <a href="#steps" className="intro-pill">
-              how it works
+              the 4 steps
             </a>
           </div>
 
           <div className="intro-buttons">
             <Link href="/" className="intro-pill intro-pill-red">
-              part 2: cursed socials →
+              part 2: make it cursed -&gt;
             </Link>
           </div>
         </section>
 
         <section className="intro-block" id="learn">
-          <h2>what you will actually learn</h2>
+          <h2>the three basics</h2>
           <p className="intro-note">
-            part 1 of 2 · for teens 13–18 · no coding experience needed
+            ages 13 to 18 · you do not need any coding experience at all
           </p>
 
           <ul className="intro-list">
             <li>
-              <strong>HTML</strong> — puts headings, images, navbars, buttons,
-              and everything else on the page
+              <strong>HTML</strong> is for your content. It adds your text,
+              pictures, buttons, and page links.
             </li>
             <li>
-              <strong>CSS</strong> — colors, fonts, layouts, and spacing so it
-              looks like something you would actually use
+              <strong>CSS</strong> is for styling. It lets you pick your
+              background colors, fonts, borders, and spacing.
             </li>
             <li>
-              <strong>JavaScript</strong> — makes buttons do things when you
-              click them, counters that count, popups that pop
+              <strong>JavaScript</strong> is for action. It makes buttons
+              clickable so your site can react when someone taps on it.
             </li>
           </ul>
         </section>
 
         <section className="intro-block" id="steps">
-          <h2>how to do it</h2>
+          <h2>how to get your grant</h2>
 
           <ol className="intro-steps">
             <li>
-              <strong>make three files</strong> in a folder:
+              <strong>Make a folder</strong> on your computer. Inside, make
+              three empty files: index.html, style.css, and script.js. You can
+              open them in any text editor like VS Code or Notepad.
               <pre>{`my-site/
 ├── index.html
 ├── style.css
@@ -94,41 +114,44 @@ export default function IntroPage() {
             </li>
 
             <li>
-              <strong>build any website you want</strong> — a portfolio, a fan
-              page, a fake store, a blog, a social feed, literally anything
-              using HTML and CSS:
-              <pre>{`<nav class="topbar">my cool site</nav>
+              <strong>Build your idea.</strong> It can be about anything you care
+              about: your favorite video game, a music artist, a fun quiz, a
+              simple portfolio, or silly jokes. Write your words in HTML and
+              make it look nice with CSS:
+              <pre>{`<nav class="topbar">my site</nav>
 <div class="card">
-  <h2>hello world</h2>
-  <p>i made this myself!</p>
+  <h2>hello!</h2>
+  <p>i built this website myself.</p>
   <button id="click-me">click me</button>
 </div>`}</pre>
             </li>
 
             <li>
-              <strong>add one JavaScript thing</strong> — a click counter, an
-              alert, a color changer, anything interactive:
+              <strong>Add a simple button action.</strong> Write a few lines in
+              script.js so something happens when someone clicks your button,
+              like updating the text or showing a message:
               <pre>{`let count = 0;
-document.getElementById('click-me')
-  .addEventListener('click', function() {
-    count = count + 1;
-    alert('clicked ' + count + ' times');
-  });`}</pre>
+const btn = document.getElementById('click-me');
+
+btn.addEventListener('click', () => {
+  count = count + 1;
+  btn.textContent = 'clicked ' + count + ' times';
+});`}</pre>
             </li>
 
             <li>
-              <strong>put it online and submit.</strong> drag your folder
-              into{' '}
+              <strong>Put it online and get your grant.</strong> Go to{' '}
               <a
                 href="https://app.netlify.com/drop"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                netlify.com/drop
+                app.netlify.com/drop
               </a>{' '}
-              to get a live link, then submit it for a $5–$10 Hack Club grant.
-              after that, go break everything in{' '}
-              <Link href="/">Part 2</Link>.
+              and drag your folder onto the screen to get a live link. Submit
+              your link, and Hack Club will send you a $5 to $10 grant. After
+              that, you can check out <Link href="/">Part 2</Link> to make
+              cursed projects.
             </li>
           </ol>
         </section>
@@ -136,7 +159,7 @@ document.getElementById('click-me')
 
       <footer className="intro-footer">
         <div className="intro-wrap intro-footer-row">
-          <span>cursed socials — hack club ysws · by priyanshu singh</span>
+          <span>cursed socials · a hack club ysws by priyanshu singh</span>
           <div className="intro-footer-links">
             <a
               href="https://hackclub.com"
@@ -150,14 +173,14 @@ document.getElementById('click-me')
               target="_blank"
               rel="noopener noreferrer"
             >
-              #cursed-socials
+              #cursed-socials slack
             </a>
             <a
               href="https://hackclub.com/conduct"
               target="_blank"
               rel="noopener noreferrer"
             >
-              conduct
+              code of conduct
             </a>
           </div>
         </div>
