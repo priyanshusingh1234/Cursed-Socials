@@ -1,0 +1,281 @@
+.intro-page {
+  min-height: 100vh;
+  background: #f4ecdc;
+  color: #24211f;
+  font-family: 'Fredoka', 'Nunito', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+.intro-wrap {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.intro-banner {
+  background: #c88aa6;
+  border-bottom: 4px solid #24211f;
+  padding: 40px 0 36px;
+}
+
+.intro-hc {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #24211f;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  padding: 4px 12px 4px 8px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.intro-hc img {
+  width: 20px;
+  height: 20px;
+}
+
+.intro-logo {
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: #fff;
+  -webkit-text-stroke: 8px #24211f;
+  paint-order: stroke fill;
+}
+
+.intro-hero {
+  padding: 44px 0 36px;
+}
+
+.intro-tagline {
+  margin: 0 0 28px;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.3;
+  max-width: 34ch;
+}
+
+.intro-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.intro-pill {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 2.5px solid #24211f;
+  border-radius: 999px;
+  color: #24211f;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.intro-pill:hover {
+  background: #e9dec8;
+}
+
+.intro-block {
+  padding: 24px 0 28px;
+  max-width: 660px;
+}
+
+.intro-block h2 {
+  margin: 0 0 8px;
+  font-size: 1.55rem;
+}
+
+.intro-note {
+  margin: 0 0 18px;
+  color: #5c554d;
+}
+
+.intro-list {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.intro-steps {
+  margin: 14px 0 0;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.intro-steps a {
+  color: #24211f;
+  font-weight: 700;
+}
+
+.intro-steps pre {
+  margin: 10px 0 0;
+  padding: 14px 16px;
+  background: #24211f;
+  color: #f4ecdc;
+  border-radius: 10px;
+  font-family: ui-monospace, 'Fira Code', monospace;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.intro-footer {
+  margin-top: 40px;
+  border-top: 2px solid rgba(36, 33, 31, 0.15);
+  padding: 22px 0 32px;
+  font-size: 0.9rem;
+  color: #5c554d;
+}
+
+.intro-footer-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.intro-footer-links {
+  display: flex;
+  gap: 16px;
+}
+
+.intro-footer-links a {
+  color: #24211f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.intro-footer-links a:hover {
+  text-decoration: underline;
+}
+
+.intro-banner-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.intro-theme-btn {
+  background: rgba(255, 255, 255, 0.25);
+  border: 2px solid #24211f;
+  border-radius: 999px;
+  padding: 6px 18px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #24211f;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.intro-theme-btn:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.intro-logo-sub {
+  margin: 6px 0 0;
+  font-size: clamp(0.95rem, 2.5vw, 1.3rem);
+  font-weight: 600;
+  color: #24211f;
+  opacity: 0.7;
+}
+
+.intro-pill-fill {
+  background: #24211f;
+  color: #f4ecdc;
+}
+
+.intro-pill-fill:hover {
+  background: #3a3630;
+}
+
+.intro-pill-red {
+  background: #ec3750;
+  color: #fff;
+  border-color: #ec3750;
+}
+
+.intro-pill-red:hover {
+  background: #d92b43;
+}
+
+.intro-page.intro-light {
+  background: #fffdf8;
+  color: #1a1a1a;
+}
+
+.intro-light .intro-banner {
+  background: #ffd6e7;
+  border-bottom-color: #1a1a1a;
+}
+
+.intro-light .intro-hc {
+  background: #1a1a1a;
+}
+
+.intro-light .intro-logo {
+  color: #fffdf8;
+  -webkit-text-stroke-color: #1a1a1a;
+}
+
+.intro-light .intro-logo-sub {
+  color: #1a1a1a;
+}
+
+.intro-light .intro-theme-btn {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: #1a1a1a;
+  color: #1a1a1a;
+}
+
+.intro-light .intro-theme-btn:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.intro-light .intro-pill {
+  border-color: #1a1a1a;
+  color: #1a1a1a;
+}
+
+.intro-light .intro-pill:hover {
+  background: #f0ece0;
+}
+
+.intro-light .intro-pill-fill {
+  background: #1a1a1a;
+  color: #fffdf8;
+}
+
+.intro-light .intro-note {
+  color: #666;
+}
+
+.intro-light .intro-steps pre {
+  background: #1a1a1a;
+  color: #fffdf8;
+}
+
+.intro-light .intro-steps a {
+  color: #1a1a1a;
+}
+
+.intro-light .intro-footer {
+  border-top-color: rgba(0, 0, 0, 0.1);
+  color: #666;
+}
+
+.intro-light .intro-footer-links a {
+  color: #1a1a1a;
+}

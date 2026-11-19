@@ -29,14 +29,37 @@ body.page-is-dizzy-lol {
 }
 
 @keyframes wobblyDizzySway {
-  0% { transform: rotate(0deg) skewX(0deg) translateX(0px); }
-  15% { transform: rotate(-0.7deg) skewX(0.4deg) translateX(-3px); }
-  30% { transform: rotate(0.5deg) skewX(-0.3deg) translateX(4px); }
-  45% { transform: rotate(-0.3deg) skewX(0.5deg) translateX(-2px); }
-  60% { transform: rotate(0.8deg) skewX(-0.2deg) translateX(3px); }
-  75% { transform: rotate(-0.4deg) skewX(0.3deg) translateX(-4px); }
-  90% { transform: rotate(0.3deg) skewX(-0.4deg) translateX(2px); }
-  100% { transform: rotate(0deg) skewX(0deg) translateX(0px); }
+  0% {
+    transform: rotate(0deg) skewX(0deg) translateX(0px);
+  }
+
+  15% {
+    transform: rotate(-0.7deg) skewX(0.4deg) translateX(-3px);
+  }
+
+  30% {
+    transform: rotate(0.5deg) skewX(-0.3deg) translateX(4px);
+  }
+
+  45% {
+    transform: rotate(-0.3deg) skewX(0.5deg) translateX(-2px);
+  }
+
+  60% {
+    transform: rotate(0.8deg) skewX(-0.2deg) translateX(3px);
+  }
+
+  75% {
+    transform: rotate(-0.4deg) skewX(0.3deg) translateX(-4px);
+  }
+
+  90% {
+    transform: rotate(0.3deg) skewX(-0.4deg) translateX(2px);
+  }
+
+  100% {
+    transform: rotate(0deg) skewX(0deg) translateX(0px);
+  }
 }
 
 body.page-is-dizzy-lol.cursed-upside-down {
@@ -44,14 +67,37 @@ body.page-is-dizzy-lol.cursed-upside-down {
 }
 
 @keyframes wobblyDizzyFlipped {
-  0% { transform: rotate(180deg) skewX(0deg) translateX(0px); }
-  15% { transform: rotate(179.3deg) skewX(0.4deg) translateX(-3px); }
-  30% { transform: rotate(180.5deg) skewX(-0.3deg) translateX(4px); }
-  45% { transform: rotate(179.7deg) skewX(0.5deg) translateX(-2px); }
-  60% { transform: rotate(180.8deg) skewX(-0.2deg) translateX(3px); }
-  75% { transform: rotate(179.6deg) skewX(0.3deg) translateX(-4px); }
-  90% { transform: rotate(180.3deg) skewX(-0.4deg) translateX(2px); }
-  100% { transform: rotate(180deg) skewX(0deg) translateX(0px); }
+  0% {
+    transform: rotate(180deg) skewX(0deg) translateX(0px);
+  }
+
+  15% {
+    transform: rotate(179.3deg) skewX(0.4deg) translateX(-3px);
+  }
+
+  30% {
+    transform: rotate(180.5deg) skewX(-0.3deg) translateX(4px);
+  }
+
+  45% {
+    transform: rotate(179.7deg) skewX(0.5deg) translateX(-2px);
+  }
+
+  60% {
+    transform: rotate(180.8deg) skewX(-0.2deg) translateX(3px);
+  }
+
+  75% {
+    transform: rotate(179.6deg) skewX(0.3deg) translateX(-4px);
+  }
+
+  90% {
+    transform: rotate(180.3deg) skewX(-0.4deg) translateX(2px);
+  }
+
+  100% {
+    transform: rotate(180deg) skewX(0deg) translateX(0px);
+  }
 }
 
 .side-cursed-hint {
@@ -164,7 +210,7 @@ body.page-is-dizzy-lol.cursed-upside-down {
   letter-spacing: 0.08em;
   text-shadow: 0 1px 3px rgba(20, 15, 60, 0.8), 0 0 2px rgba(20, 15, 60, 0.9);
   transition: transform 0.25s ease,
-              text-shadow 0.2s ease;
+    text-shadow 0.2s ease;
 }
 
 .nav-box:hover .nav-text {
@@ -180,7 +226,7 @@ body.page-is-dizzy-lol.cursed-upside-down {
   box-shadow: none;
   text-align: center;
   transition: transform 0.2s ease,
-              filter 0.2s ease;
+    filter 0.2s ease;
 }
 
 .shape-container.active-highlight {
@@ -188,9 +234,17 @@ body.page-is-dizzy-lol.cursed-upside-down {
 }
 
 @keyframes shapeGlow {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.04); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.04);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .shape-triangle {
@@ -742,9 +796,27 @@ body.page-is-dizzy-lol.cursed-upside-down {
   filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.25));
 }
 
+.hc-scribble-badge {
+  position: absolute;
+  left: 38%;
+  top: 10%;
+  width: 24%;
+  z-index: 60;
+  pointer-events: none;
+  transform: translateX(-50%) rotate(-1.5deg);
+  filter: drop-shadow(1px 2px 3px rgba(43, 33, 102, 0.1));
+}
+
+.hc-scribble-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
 .rsvp-center-zone {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 150;

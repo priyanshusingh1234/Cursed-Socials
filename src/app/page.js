@@ -176,6 +176,15 @@ export default function HomePage() {
         <div className="stage">
           <div className="bg-image"></div>
 
+          <div className="hc-scribble-badge" aria-hidden="true">
+            <svg viewBox="0 0 200 34" fill="none" xmlns="http://www.w3.org/2000/svg" className="hc-scribble-svg">
+              <path d="M14 2 L186 2 L198 17 L186 32 L14 32 L2 17 Z" stroke="#3b2f8a" strokeWidth="2.2" strokeLinejoin="round" fill="none" />
+              <path d="M14 2 L7 11 L7 23 L14 32" stroke="#3b2f8a" strokeWidth="1.2" strokeLinejoin="round" fill="none" opacity="0.4" />
+              <path d="M186 2 L193 11 L193 23 L186 32" stroke="#3b2f8a" strokeWidth="1.2" strokeLinejoin="round" fill="none" opacity="0.4" />
+              <text x="100" y="21" fontFamily="'Special Elite', cursive" fontSize="12" fill="#2b2166" fontWeight="700" letterSpacing="5" textAnchor="middle">HACK CLUB</text>
+            </svg>
+          </div>
+
           <nav className="nav-bar">
             <a href="#hero" className="nav-box nav-home"><span className="nav-text">Home</span></a>
             <a href="#about" className="nav-box nav-about"><span className="nav-text">About</span></a>
