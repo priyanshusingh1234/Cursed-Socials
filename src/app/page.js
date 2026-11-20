@@ -122,6 +122,12 @@ export default function HomePage() {
       </a>
 
       <div className="top-pills-row">
+        <Link href="/intro" className="guide-floating-pill">
+          <span>Part 1: Basics →</span>
+        </Link>
+        <Link href="/handbook" className="guide-floating-pill">
+          <span>3-Part Handbook →</span>
+        </Link>
         <Link href="/guide" className="guide-floating-pill">
           <span>Beginner Guide →</span>
         </Link>

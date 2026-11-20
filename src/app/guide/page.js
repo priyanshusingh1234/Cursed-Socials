@@ -17,6 +17,39 @@ export default function GuidePage() {
       <SpiderHang />
       <div className="topbar">
         <Link href="/">← back to Cursed Socials</Link>
+        <Link href="/intro" className="topbar-beginner-tab">
+          Part 1: Basics →
+        </Link>
+        <Link href="/handbook" className="topbar-beginner-tab">
+          Parts 1–3 Handbook (Live Demos) →
+        </Link>
+        <a
+          href="/part-1-guide.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="topbar-beginner-tab"
+        >
+          Part 1 PDF →
+        </a>
+        <a
+          href="/part-2-guide.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="topbar-beginner-tab"
+        >
+          Part 2 PDF →
+        </a>
+        <a
+          href="/part-3-guide.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="topbar-beginner-tab"
+        >
+          Part 3 PDF →
+        </a>
+        <Link href="/" className="topbar-beginner-tab">
+          Part 2 (Cursed Home) →
+        </Link>
         <a
           href="/cursed-lesson-1-gravity-text.pdf"
           target="_blank"
