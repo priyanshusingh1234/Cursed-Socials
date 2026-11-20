@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap');
 
-/* ---------- Colors: change these and the whole page changes ---------- */
 .site {
   --red: #ec3750;
   --red-dark: #d8253e;
@@ -26,7 +25,6 @@
   color: #15121e;
 }
 
-/* ---------- Base ---------- */
 .site {
   min-height: 100vh;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -73,7 +71,6 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
-/* ---------- Small labels ---------- */
 .label {
   font-size: 0.8rem;
   font-weight: 700;
@@ -107,7 +104,6 @@ button:focus-visible {
   color: var(--muted);
 }
 
-/* ---------- Header ---------- */
 .header {
   padding: 24px 0 20px;
   border-bottom: 1px solid var(--line);
@@ -200,7 +196,6 @@ button:focus-visible {
   font-weight: 700;
 }
 
-/* ---------- Goal banner ---------- */
 .goal {
   display: flex;
   align-items: center;
@@ -222,7 +217,6 @@ button:focus-visible {
   border-radius: 4px;
 }
 
-/* ---------- Layout helpers ---------- */
 .two-col {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
@@ -259,7 +253,6 @@ button:focus-visible {
   }
 }
 
-/* ---------- Cards (one style for everything) ---------- */
 .card {
   background: var(--card);
   border: 1px solid var(--line);
@@ -278,7 +271,6 @@ button:focus-visible {
   padding: 20px;
 }
 
-/* ---------- Post demo ---------- */
 .post-head {
   display: flex;
   align-items: center;
@@ -328,7 +320,6 @@ button:focus-visible {
   color: var(--red);
 }
 
-/* ---------- Link cards ---------- */
 .link-card {
   display: block;
   background: var(--card);
@@ -367,7 +358,6 @@ button:focus-visible {
   font-size: 0.9rem;
 }
 
-/* ---------- PDF section ---------- */
 .pdf-box {
   display: grid;
   grid-template-columns: 1.25fr 1fr;
@@ -392,7 +382,6 @@ button:focus-visible {
   margin-bottom: 8px;
 }
 
-/* ---------- Buttons ---------- */
 .btn-row {
   display: flex;
   justify-content: center;
@@ -426,7 +415,6 @@ button:focus-visible {
   color: #fff;
 }
 
-/* ---------- Code ---------- */
 pre {
   margin: 0;
   padding: 12px 14px;
@@ -447,7 +435,6 @@ code {
   font-size: 0.88em;
 }
 
-/* ---------- Ideas ---------- */
 .num {
   font-family: 'Gravitas One', serif;
   font-size: 1.6rem;
@@ -464,7 +451,6 @@ code {
   margin-bottom: 14px;
 }
 
-/* ---------- Steps ---------- */
 .step {
   display: flex;
   gap: 18px;
@@ -500,7 +486,6 @@ code {
   font-weight: 700;
 }
 
-/* ---------- Level up ---------- */
 .finished {
   text-align: center;
 }
@@ -510,7 +495,6 @@ code {
   margin: 0 auto 24px;
 }
 
-/* ---------- Footer ---------- */
 .footer {
   border-top: 1px solid var(--line);
   padding: 28px 0 44px;

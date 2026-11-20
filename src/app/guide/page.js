@@ -17,39 +17,6 @@ export default function GuidePage() {
       <SpiderHang />
       <div className="topbar">
         <Link href="/">← back to Cursed Socials</Link>
-        <Link href="/intro" className="topbar-beginner-tab">
-          Part 1: Basics →
-        </Link>
-        <Link href="/handbook" className="topbar-beginner-tab">
-          Parts 1–3 Handbook (Live Demos) →
-        </Link>
-        <a
-          href="/part-1-guide.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="topbar-beginner-tab"
-        >
-          Part 1 PDF →
-        </a>
-        <a
-          href="/part-2-guide.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="topbar-beginner-tab"
-        >
-          Part 2 PDF →
-        </a>
-        <a
-          href="/part-3-guide.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="topbar-beginner-tab"
-        >
-          Part 3 PDF →
-        </a>
-        <Link href="/" className="topbar-beginner-tab">
-          Part 2 (Cursed Home) →
-        </Link>
         <a
           href="/cursed-lesson-1-gravity-text.pdf"
           target="_blank"
@@ -89,34 +56,33 @@ export default function GuidePage() {
           <div className="vr"></div>
           <div className="fc fc-2 mobile-unstack-why">
             <div className="col teen-col-fix">
-              <div className="h2">Absolute beginner?<br />Read these slides first.</div>
+              <div className="h2">Absolute beginner?<br />Start with Part 1.</div>
               <div className="body">
-                never coded a site or used git before? read our <strong>beginner starter slides</strong> before going through this guide.
+                never coded a site or built a layout before? start with our <strong>Part 1 beginner guide</strong> to learn HTML, CSS, and basic JS, then come back here to make it cursed.
               </div>
               <hr className="hr" />
               <div className="body-sm" style={{ lineHeight: 1.55 }}>
-                what&apos;s inside:<br />
-                1. what git &amp; github are (plain english)<br />
-                2. making a repo + saving starter files<br />
-                3. building a simple social feed in html/css<br />
-                4. easy cursed js tricks to use<br />
-                5. hosting it live for free
+                what&apos;s inside Part 1:<br />
+                1. what HTML, CSS, and JS do (no jargon)<br />
+                2. 2-minute setup with VS Code<br />
+                3. building your first website or feed<br />
+                4. deploying live on Netlify Drop<br />
+                5. getting your $5–$10 Hack Club grant
               </div>
               <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: 'auto' }}>
+                <Link
+                  href="/intro"
+                  className="cta-btn"
+                >
+                  Go to Part 1 →
+                </Link>
                 <a
                   href="/beginner-guide.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cta-btn"
-                >
-                  Open Slides (PDF) →
-                </a>
-                <a
-                  href="/beginner-guide.pdf"
-                  download="cursed-socials-beginner-guide.pdf"
                   className="cta-btn-outline"
                 >
-                  Download PDF
+                  Open Slides (PDF) →
                 </a>
               </div>
             </div>
